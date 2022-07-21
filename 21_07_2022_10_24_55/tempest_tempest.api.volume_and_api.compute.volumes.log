@@ -1,0 +1,968 @@
+{2} tempest.api.compute.volumes.test_attach_volume_negative.AttachVolumeNegativeTest.test_attach_attached_volume_to_different_server [0.662407s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+
+Captured traceback-1:
+~~~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+    
+During handling of the above exception, another exception occurred:
+
+
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 208, in setUp
+    raise SetupError(details)
+
+    fixtures.fixture.SetupError: {}
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2022-07-21 13:26:48,295 28654 DEBUG    [tempest.lib.common.validation_resources] Requested setup of ValidationResources keypair True, floating IP True, security group False
+2022-07-21 13:26:48,296 28654 DEBUG    [tempest.lib.common.validation_resources] Requested validation resources keypair True, floating IP True, security group False
+2022-07-21 13:26:48,701 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 200 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs 0.404s
+2022-07-21 13:26:48,702 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"keypair": {"name": "tempest-keypair-57957951"}}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:48 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '2303', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-a01c0d89-81af-4ffc-b092-ba858361abc8', 'x-compute-request-id': 'req-a01c0d89-81af-4ffc-b092-ba858361abc8', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs'}
+        Body: b'{"keypair": {"private_key": "-----BEGIN RSA PRIVATE KEY-----\\nMIIEpAIBAAKCAQEAv7uE02s7wVhAHWm27n1igOqwHQcZmpZlXjTc4Q4xQSiRXaOz\\ntrd3H2A9JqKIhQUE6hQEVI0Qd4DTenf9+S2EhRhoxmotdLGFOZ4fx9I+UKWx2T2D\\njgI+Yfe98kQCsoEXa6zidvRhvkCssTurvVbjyqGuF+fezGD+DZGWZRxeg9vadz98\\nE/zrcxeTZe1xTSJQUg1CjG8Mm0DAb/AF8SXo2OGCnJ2q3RiYlmlFF2d5ezvAijXb\\nTqeN4PnBYC0/PP+7drHIHBcDFalpl0II9LchMLo60vvKQi9bNEbbFq2KkYhaTruL\\n4k+XGjYEP7mvhg5on9AFJzv+5BDj0LcyAAnevQIDAQABAoIBAQC8eHJa+OAmcL+l\\nqhM+YFaB7zDrd909TnWao1A0kqTsLhqm95JjG/mnCA1UexTD3Wk1SDPxgTEcp7A6\\nhNVNKedIhfQIhrrkKNSTDNKktBC5agdnSsaUw7PazZMUILKeEbOaDroWwKeMQzr+\\nhW+OkWkd+MyPh0hFk1posCIshjSKW8+35u5IyI1F+H3HyqpHJKu2bepaoqB7XZ5i\\nkdMqPfxuH5Hye8YTmhvPbWRX8JW9bSTjoQQH3n+ZXWVCuZCqqs9yWRoMDsAALaXl\\nhc00RFoj/sczuZvJKcaOP0vspxS2drzhzhLf3H8f9xoI5oJVVDyhnFakdTtiX3yv\\nB9xWlb5pAoGBAPSBbsOqycx2IsoDoZLvC0KGfDqserqa2eTwGRlgX8Sc2/NEm4xw\\nCSA561EdZ8utaNSBk1Ku8Ym4SHt1+AW3xpwY6UzUiu5u/w0LMuu894jVY6CEdVBk\\nXx90qVERox0rBRaBMxx8CG6r5KQgk6HluOdd0wwTuIC8j+m9ZlHoh7d/AoGBAMi+\\n+W1c6M2H9/FeAL1esLedcrcsOTq/NxfmfWdGsJvceckJAJlAKeoFjnH48itWEvBK\\nYr9lKrqSnTPz7K5z0/L9hQlkzpwZJN+XIZjr/FpXH1afff92ZKHLqBW9Fk+/8PfW\\nbCmxAPX6TlDOgJJJyEzWBjDvzDKxhrgBSeJMq2fDAoGAFe7yd7z/Y0cJseOHf/3P\\nncUgqcbFL64qc74SElOx45pKpNT3uy5lsy1e7aTcpcnFiKKjC5zD8B3G6sRXXnPw\\n7hnR++FpISB14r6pb7pA3lZ+HG0ldPO8EL9PXQVfA4PTbgRjCGAcBYmH9i0x8SkB\\nYEfrYb73Ix1HL6mc3yYj3pMCgYEAr/TU5Esfs6eOaH4g39vzwb28I1ob/6ZDQCvD\\nl5aajsM97Dx7zdgz5PBh3vx6KAoWJ5DL5T9jqI2CRVt1BaR5Du+wgH9fqetQKrtp\\ns4SFeRoMWf0Kj7TSmA7Okd9fgx+Ws2W7AQAo+3Ie2y1l/NO3QcIHQzWtInIAx6A5\\nhqX1R8kCgYBelfSuy66s9RqeKjZglNX112EM1+7j/1AORM7NTtjlOMQB16zBsXv2\\nJQaCHfjH0JZdvvcyLKdKhVqg/PsvN6GJ2u4bm+jQBqCJzPFo4mGHNiM/Iaz6BQse\\nF5vI6l6/HoJjWK89jp+oYzwWmdS4kMVsV5cFReF1y3SQZ+vXsSWjlQ==\\n-----END RSA PRIVATE KEY-----\\n", "name": "tempest-keypair-57957951", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/u4TTazvBWEAdabbufWKA6rAdBxmalmVeNNzhDjFBKJFdo7O2t3cfYD0mooiFBQTqFARUjRB3gNN6d/35LYSFGGjGai10sYU5nh/H0j5QpbHZPYOOAj5h973yRAKygRdrrOJ29GG+QKyxO6u9VuPKoa4X597MYP4NkZZlHF6D29p3P3wT/OtzF5Nl7XFNIlBSDUKMbwybQMBv8AXxJejY4YKcnardGJiWaUUXZ3l7O8CKNdtOp43g+cFgLT88/7t2scgcFwMVqWmXQgj0tyEwujrS+8pCL1s0RtsWrYqRiFpOu4viT5caNgQ/ua+GDmif0AUnO/7kEOPQtzIACd69 Generated-by-Nova", "fingerprint": "06:27:6e:15:55:4e:4b:c5:2e:91:f2:df:03:24:55:7b", "user_id": "7c83eb60746a45ae828022a8bd71ec18"}}'
+2022-07-21 13:26:48,708 28654 DEBUG    [tempest.lib.common.validation_resources] Validation resource key tempest-keypair-57957951 created
+2022-07-21 13:26:48,911 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 404 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips 0.202s
+2022-07-21 13:26:48,911 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'applic
+    ation/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"pool": null}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:48 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '73', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-171e6f2b-d4a5-4c30-a840-9cf212a4a32d', 'x-compute-request-id': 'req-171e6f2b-d4a5-4c30-a840-9cf212a4a32d', 'connection': 'close', 'content-type': 'application/json; charset=UTF-8', 'status': '404', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips'}
+        Body: b'{"itemNotFound": {"code": 404, "message": "Floating IP pool not found."}}'
+2022-07-21 13:26:48,912 28654 DEBUG    [tempest.lib.common.validation_resources] Error while provisioning validation resources Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}. Trying to cleanup what we provisioned so far: {'keypair': {'private_key': '-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAv7uE02s7wVhAHWm27n1igOqwHQcZmpZlXjTc4Q4xQSiRXaOz\ntrd3H2A9JqKIhQUE6hQEVI0Qd4DTenf9+S2EhRhoxmotdLGFOZ4fx9I+UKWx2T2D\njgI+Yfe98kQCsoEXa6zidvRhvkCssTurvVbjyqGuF+fezGD+DZGWZRxeg9vadz98\nE/zrcxeTZe1xTSJQUg1CjG8Mm0DAb/AF8SXo2OGCnJ2q3RiYlmlFF2d5ezvAijXb\nTqeN4PnBYC0/PP+7drHIHBcDFalpl0II9LchMLo60vvKQi9bNEbbFq2KkYhaTruL\n4k+XGjYEP7mvhg5on9AFJzv+5BDj0LcyAAnevQIDAQABAoIBAQC8eHJa+OAmcL+l\nqhM+YFaB7zDrd909TnWao1A0kqTsLhqm95JjG/mnCA1UexTD3Wk1SDPxgTEcp7A6\nhNVNKedIhfQIhrrkKNSTDNKktBC5agdnSsaUw7PazZMUILKeEbOaDroWwKeMQzr+\nhW+OkWkd+MyPh0hFk1posCIshjSKW8+35u5IyI1F+H3HyqpHJKu2bepaoqB7XZ5i\nkdMqPfxuH5Hye8YTmhvPbWRX8JW9bSTjoQQH3n+ZXWVCuZCqqs9yWRoMDsAALaXl\nhc00RFoj/sczuZvJKcaOP0vspxS2drzhzhLf3H8f9xoI5oJVVDyhnFakdTtiX3yv\nB9xWlb5pAoGBAPSBbsOqycx2IsoDoZLvC0KGfDqserqa2eTwGRlgX8Sc2/NEm4xw\nCSA561EdZ8utaNSBk1Ku8Ym4SHt1+AW3xpwY6UzUiu5u/w0LMuu894jVY6CEdVBk\nXx90qVERox0rBRaBMxx8CG6r5KQgk6HluOdd0wwTuIC8j+m9ZlHoh7d/AoGBAMi+\n+W1c6M2H9/FeAL1esLedcrcsOTq/NxfmfWdGsJvceckJAJlAKeoFjnH48itWEvBK\nYr9lKrqSnTPz7K5z0/L9hQlkzpwZJN+XIZjr/FpXH1afff92ZKHLqBW9Fk+/8PfW\nbCmxAPX6TlDOgJJJyEzWBjDvzDKxhrgBSeJMq2fDAoGAFe7yd7z/Y0cJseOHf/3P\nncUgqcbFL64qc74SElOx45pKpNT3uy5lsy1e7aTcpcnFiKKjC5zD8B3G6sRXXnPw\n7hnR++FpISB14r6pb7pA3lZ+HG0ldPO8EL9PXQVfA4PTbgRjCGAcBYmH9i0x8SkB\nYEfrYb73Ix1HL6mc3yYj3pMCgYEAr/TU5Esfs6eOaH4g39vzwb28I1ob/6ZDQCvD\nl5aajsM97Dx7zdgz5PBh3vx6KAoWJ5DL5T9jqI2CRVt1BaR5Du+wgH9fqetQKrtp\ns4SFeRoMWf0Kj7TSmA7Okd9fgx+Ws2W7AQAo+3Ie2y1l/NO3QcIHQzWtInIAx6A5\nhqX1R8kCgYBelfSuy66s9RqeKjZglNX112EM1+7j/1AORM7NTtjlOMQB16zBsXv2\nJQaCHfjH0JZdvvcyLKdKhVqg/PsvN6GJ2u4bm+jQBqCJzPFo4mGHNiM/Iaz6BQse\nF5vI6l6/HoJjWK89jp+oYzwWmdS4kMVsV5cFReF1y3SQZ+vXsSWjlQ==\n-----END RSA PRIVATE KEY-----\n', 'name': 'tempest-keypair-57957951', 'public_key': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/u4TTazvBWEAdabbufWKA6rAdBxmalmVeNNzhDjFBKJFdo7O2t3cfYD0mooiFBQTqFARUjRB3gNN6d/35LYSFGGjGai10sYU5nh/H0j5QpbHZPYOOAj5h973yRAKygRdrrOJ29GG+QKyxO6u9VuPKoa4X597MYP4NkZZlHF6D29p3P3wT/OtzF5Nl7XFNIlBSDUKMbwybQMBv8AXxJejY4YKcnardGJiWaUUXZ3l7O8CKNdtOp43g+cFgLT88/7t2scgcFwMVqWmXQgj0tyEwujrS+8pCL1s0RtsWrYqRiFpOu4viT5caNgQ/ua+GDmif0AUnO/7kEOPQtzIACd69 Generated-by-Nova', 'fingerprint': '06:27:6e:15:55:4e:4b:c5:2e:91:f2:df:03:24:55:7b', 'user_id': '7c83eb60746a45ae828022a8bd71ec18'}}
+2022-07-21 13:26:48,952 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 202 DELETE http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-57957951 0.039s
+2022-07-21 13:26:48,953 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:48 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '0', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-1b18b41a-5474-4bdf-b42a-9a7b58a1ff87', 'x-compute-request-id': 'req-1b1
+    8b41a-5474-4bdf-b42a-9a7b58a1ff87', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-57957951'}
+        Body: b''
+
+{2} tempest.api.compute.volumes.test_attach_volume_negative.AttachVolumeNegativeTest.test_attach_attached_volume_to_same_server [0.311501s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+
+Captured traceback-1:
+~~~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+    
+During handling of the above exception, another exception occurred:
+
+
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 208, in setUp
+    raise SetupError(details)
+
+    fixtures.fixture.SetupError: {}
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2022-07-21 13:26:48,960 28654 DEBUG    [tempest.lib.common.validation_resources] Requested setup of ValidationResources keypair True, floating IP True, security group False
+2022-07-21 13:26:48,961 28654 DEBUG    [tempest.lib.common.validation_resources] Requested validation resources keypair True, floating IP True, security group False
+2022-07-21 13:26:49,178 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 200 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs 0.216s
+2022-07-21 13:26:49,179 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"keypair": {"name": "tempest-keypair-587915606"}}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:48 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '2304', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-cb027484-691b-4fe0-805f-6a82a2c98f83', 'x-compute-request-id': 'req-cb027484-691b-4fe0-805f-6a82a2c98f83', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs'}
+        Body: b'{"keypair": {"private_key": "-----BEGIN RSA PRIVATE KEY-----\\nMIIEpQIBAAKCAQEA7SVdwlSZSi+Lp3uQcoHMv0eeopL7++rAcAghLiZmFxo0g+Wx\\nO3behg//D4DLpWnl2D+/ql2gUrlVBGnVfe9Yskn82dg8BDFf4YMtCB5+yE0DukbV\\nlQs4vZVtu2/0py1usUIvrHXu0WDmI6jGRqMVfj3/mlPchIY6/KaJKpBkPfIQSqR2\\n9wMxQawG4Z4X3mhh3r9APhKim2l1VQklkM1sKVXW65TOqqsnQcV8prUopeFDR9PV\\n5PSh2IC1zfGbJRtLqcR0vnEzQxc5RLS1FUFj3XzeQyd9Tz3o75S8ToaLClDME+bO\\n9az1qsZw+ch9jjDx2iSispudC4nUeKe0JmlYvQIDAQABAoIBAQCxxvNUvWr1DFOb\\nSKxuyxOcyaoIoju5DLEay11kZXDfHMwFnOmSdHg49ED3dEw2Qv8FcDTVGL8ZhMpR\\nNq3PbOCHN6QQA2RqmEESo+3cSlAtBF8pA/UVeIYeyairfTBhK1PyGnX2yaow2H1u\\nehW52oRAUWYOYZPM3XvW71mgyQH81MsH8tMn6k6jUtVAozBbCex4pq46qfYvkdLA\\nC13A0RleEC9QmnJJ8RiHkfx3X/q2zZTa7kGKHNjL8eymm8ymoysHIq6cHISwX7Xq\\nBwABn3akRhsP+Cf59quSIjKC+9n3TLiLkit/2S/ojM2fpSWdazamk3xrc3/tet2p\\nnRTsNk4BAoGBAP0HEN4+XvLEV2yd8QcS7Q5/+QFtLGKP6zzy5FPzjcKmQx14wTwU\\nHSVsIA74qQXOCMDnnFwR5aByqE6C2Bq/Va2aLEOQHv1iCU1e/Sb0wz70VyrgTm71\\nWPkxavtIP5mQp8pK25yDOR3QzR3KNOB4g2NfIcTjnsRF0uvOAaSgpPB9AoGBAO/u\\nigt8zhqMXwgGSsbgCqRx9uiNOOhiEsul3GxBZAAYxyRIrw/huhuXtaTSjQ7UgmZM\\nUQwgqgyeEzfnoCt7da1Y8PuxzRrkxdCVmn1rFLslYPBkZ5wXTxyHjnkJyYcr8dpW\\nzSc+ek4/5A3Zs2m3CZuaIOqXM+U91kgSRkZ/rL1BAoGAJV91zl3ICHOXtiNeBn11\\nJj8guGU3uRco18fIkd3XgnisUR4U7JrL80sVMSDpVkIoaNXM8oxyLlDBK1eIM+su\\n7IVpJFGVQjfIx/TPz4E3lYThmyOmch0rFyOFebgiLLyBDBAif+uh9BVzNoM3bDBg\\nt7zFcB9uw+7MSKgU9gwEUMECgYEA7i2ceB7i8tPaGrs0TAxoRCql8uEOVxHUmrkC\\nAa1AOiBewBQvRNLNz0phFUe2o7wt3qNv6Vwbsv7RETQsej3K6dRbFWDBvSrRfGim\\nvk4ofEd03e6uM/OnoyimNF2U40yqgBae/ZA2FauzFlTAl/cN4Ju2hWqoJ6+lIlKR\\n1LY1ooECgYEAikV7tp+KHiRpd7SnZjVDfaN5lLk4sEmPX7y+e3Ioh/Mj2VWnXoF8\\nZtudDWu+BHp5wvVV40YvANHKXBts7Sh1TFLdivDAQ66onKEpozb3a4nTGdrlBuv7\\nYJlyrnuuKj0nZxCKrU1OVBI1BxE4LI/qMt4W6mhgLQPEHDcuvy7Mp74=\\n-----END RSA PRIVATE KEY-----\\n", "name": "tempest-keypair-587915606", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDtJV3CVJlKL4une5Bygcy/R56ikvv76sBwCCEuJmYXGjSD5bE7dt6GD/8PgMulaeXYP7+qXaBSuVUEadV971iySfzZ2DwEMV/hgy0IHn7ITQO6RtWVCzi9lW27b/SnLW6xQi+sde7RYOYjqMZGoxV+Pf+aU9yEhjr8pokqkGQ98hBKpHb3AzFBrAbhnhfeaGHev0A+EqKbaXVVCSWQzWwpVdbrlM6qqydBxXymtSil4UNH09Xk9KHYgLXN8ZslG0upxHS+cTNDFzlEtLUVQWPdfN5DJ31PPejvlLxOhosKUMwT5s71rPWqxnD5yH2OMPHaJKKym50LidR4p7QmaVi9 Generated-by-Nova", "fingerprint": "a5:97:73:cc:f8:b1:0f:9b:44:ab:41:86:fe:63:4c:91", "user_id": "7c83eb60746a45ae828022a8bd71ec18"}}'
+2022-07-21 13:26:49,182 28654 DEBUG    [tempest.lib.common.validation_resources] Validation resource key tempest-keypair-587915606 created
+2022-07-21 13:26:49,232 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 404 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips 0.048s
+2022-07-21 13:26:49,232 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'app
+    lication/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"pool": null}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '73', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-35a93f27-0a12-4a14-aee7-50c70987296c', 'x-compute-request-id': 'req-35a93f27-0a12-4a14-aee7-50c70987296c', 'connection': 'close', 'content-type': 'application/json; charset=UTF-8', 'status': '404', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips'}
+        Body: b'{"itemNotFound": {"code": 404, "message": "Floating IP pool not found."}}'
+2022-07-21 13:26:49,233 28654 DEBUG    [tempest.lib.common.validation_resources] Error while provisioning validation resources Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}. Trying to cleanup what we provisioned so far: {'keypair': {'private_key': '-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIBAAKCAQEA7SVdwlSZSi+Lp3uQcoHMv0eeopL7++rAcAghLiZmFxo0g+Wx\nO3behg//D4DLpWnl2D+/ql2gUrlVBGnVfe9Yskn82dg8BDFf4YMtCB5+yE0DukbV\nlQs4vZVtu2/0py1usUIvrHXu0WDmI6jGRqMVfj3/mlPchIY6/KaJKpBkPfIQSqR2\n9wMxQawG4Z4X3mhh3r9APhKim2l1VQklkM1sKVXW65TOqqsnQcV8prUopeFDR9PV\n5PSh2IC1zfGbJRtLqcR0vnEzQxc5RLS1FUFj3XzeQyd9Tz3o75S8ToaLClDME+bO\n9az1qsZw+ch9jjDx2iSispudC4nUeKe0JmlYvQIDAQABAoIBAQCxxvNUvWr1DFOb\nSKxuyxOcyaoIoju5DLEay11kZXDfHMwFnOmSdHg49ED3dEw2Qv8FcDTVGL8ZhMpR\nNq3PbOCHN6QQA2RqmEESo+3cSlAtBF8pA/UVeIYeyairfTBhK1PyGnX2yaow2H1u\nehW52oRAUWYOYZPM3XvW71mgyQH81MsH8tMn6k6jUtVAozBbCex4pq46qfYvkdLA\nC13A0RleEC9QmnJJ8RiHkfx3X/q2zZTa7kGKHNjL8eymm8ymoysHIq6cHISwX7Xq\nBwABn3akRhsP+Cf59quSIjKC+9n3TLiLkit/2S/ojM2fpSWdazamk3xrc3/tet2p\nnRTsNk4BAoGBAP0HEN4+XvLEV2yd8QcS7Q5/+QFtLGKP6zzy5FPzjcKmQx14wTwU\nHSVsIA74qQXOCMDnnFwR5aByqE6C2Bq/Va2aLEOQHv1iCU1e/Sb0wz70VyrgTm71\nWPkxavtIP5mQp8pK25yDOR3QzR3KNOB4g2NfIcTjnsRF0uvOAaSgpPB9AoGBAO/u\nigt8zhqMXwgGSsbgCqRx9uiNOOhiEsul3GxBZAAYxyRIrw/huhuXtaTSjQ7UgmZM\nUQwgqgyeEzfnoCt7da1Y8PuxzRrkxdCVmn1rFLslYPBkZ5wXTxyHjnkJyYcr8dpW\nzSc+ek4/5A3Zs2m3CZuaIOqXM+U91kgSRkZ/rL1BAoGAJV91zl3ICHOXtiNeBn11\nJj8guGU3uRco18fIkd3XgnisUR4U7JrL80sVMSDpVkIoaNXM8oxyLlDBK1eIM+su\n7IVpJFGVQjfIx/TPz4E3lYThmyOmch0rFyOFebgiLLyBDBAif+uh9BVzNoM3bDBg\nt7zFcB9uw+7MSKgU9gwEUMECgYEA7i2ceB7i8tPaGrs0TAxoRCql8uEOVxHUmrkC\nAa1AOiBewBQvRNLNz0phFUe2o7wt3qNv6Vwbsv7RETQsej3K6dRbFWDBvSrRfGim\nvk4ofEd03e6uM/OnoyimNF2U40yqgBae/ZA2FauzFlTAl/cN4Ju2hWqoJ6+lIlKR\n1LY1ooECgYEAikV7tp+KHiRpd7SnZjVDfaN5lLk4sEmPX7y+e3Ioh/Mj2VWnXoF8\nZtudDWu+BHp5wvVV40YvANHKXBts7Sh1TFLdivDAQ66onKEpozb3a4nTGdrlBuv7\nYJlyrnuuKj0nZxCKrU1OVBI1BxE4LI/qMt4W6mhgLQPEHDcuvy7Mp74=\n-----END RSA PRIVATE KEY-----\n', 'name': 'tempest-keypair-587915606', 'public_key': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDtJV3CVJlKL4une5Bygcy/R56ikvv76sBwCCEuJmYXGjSD5bE7dt6GD/8PgMulaeXYP7+qXaBSuVUEadV971iySfzZ2DwEMV/hgy0IHn7ITQO6RtWVCzi9lW27b/SnLW6xQi+sde7RYOYjqMZGoxV+Pf+aU9yEhjr8pokqkGQ98hBKpHb3AzFBrAbhnhfeaGHev0A+EqKbaXVVCSWQzWwpVdbrlM6qqydBxXymtSil4UNH09Xk9KHYgLXN8ZslG0upxHS+cTNDFzlEtLUVQWPdfN5DJ31PPejvlLxOhosKUMwT5s71rPWqxnD5yH2OMPHaJKKym50LidR4p7QmaVi9 Generated-by-Nova', 'fingerprint': 'a5:97:73:cc:f8:b1:0f:9b:44:ab:41:86:fe:63:4c:91', 'user_id': '7c83eb60746a45ae828022a8bd71ec18'}}
+2022-07-21 13:26:49,269 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 202 DELETE http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-587915606 0.035s
+2022-07-21 13:26:49,269 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '0', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-24e80020-3bf1-4fd0-b006-516cf8164c6d', 'x-compute-request-id': 're
+    q-24e80020-3bf1-4fd0-b006-516cf8164c6d', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-587915606'}
+        Body: b''
+
+{2} tempest.api.compute.volumes.test_attach_volume_negative.AttachVolumeNegativeTest.test_delete_attached_volume [0.230507s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+
+Captured traceback-1:
+~~~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+    
+During handling of the above exception, another exception occurred:
+
+
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 208, in setUp
+    raise SetupError(details)
+
+    fixtures.fixture.SetupError: {}
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2022-07-21 13:26:49,276 28654 DEBUG    [tempest.lib.common.validation_resources] Requested setup of ValidationResources keypair True, floating IP True, security group False
+2022-07-21 13:26:49,276 28654 DEBUG    [tempest.lib.common.validation_resources] Requested validation resources keypair True, floating IP True, security group False
+2022-07-21 13:26:49,424 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 200 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs 0.146s
+2022-07-21 13:26:49,425 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"keypair": {"name": "tempest-keypair-866217224"}}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '2300', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-db1d7b4f-ae83-47e7-9e01-a19e948d39b8', 'x-compute-request-id': 'req-db1d7b4f-ae83-47e7-9e01-a19e948d39b8', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs'}
+        Body: b'{"keypair": {"private_key": "-----BEGIN RSA PRIVATE KEY-----\\nMIIEogIBAAKCAQEA88kjx+/VBbSvwt1FpS08w7Pp7tBvmHiQOPiEF5y93kDvSECN\\nFgtw+n7tQoERnQ0Ihyz4XL68MG1c9WX07c6iF9YxpFsFiOebo5v5J3Cu/SidPbSn\\nXQqATWOsXIG1l+ry+vZiPI7pvteOXd9oJNdkjD79DCsG8GWGWOmbTYR3MqlLDY/e\\n9vgscWd7Qj5f3xJHswCNLe4Sdc68yWxJax4DQlrfcZFngoHBksV/vYNBpwzfHA/0\\nJ+os3sPT3A7zIwqTLMB2x2u8hk04SEe+Ot9/9RMMCqp1upnyJKlZzkIH/lXyfm0x\\nWVtaOcsTbZ/G8gLV+CamON/Nr+VqgxgC6tl/6wIDAQABAoIBACHOQqf3GhMwey8K\\ngB3nqAV7bXUwckkybs13qNmdYrbvSj86tFXaQFB8SWpve4HLzOLx2X8C9BXDFKDz\\nAoP3o4KqsTeZZ6sUcwC9IE/X0GxKtYNZCdxdGG2i5MPvOL9YVVl30SeUqdVNDvD1\\nifuR4t+P3IdTcCLl8TtjKaYWOHFNw08XEpK1sKniwHiNPJZdihJcZQSlATaaNKpx\\nMa0ITQAHBHphOaRLmm+z+IuBiTVcxqu/YhbdSKsOxeTD+eKUHjx07D83Ujom+Vzc\\nuC6P3zmjd4YABBq8kBnqnKf3A6rcNrIyjvUGbufks7sdpB7MhwbFQP6hiAYZW0GH\\nRAfPMAECgYEA/f3etb127MJsT9rbtr8sDdGEzqGy/SKRmLLrSB0ba7ddnjvUaMGP\\nUGCgLudRW6/Dh45Awkh3q0rABb3bGwI0v9nXt2/BSfWmxG7LfK1GxUBUuxEELZZT\\nAXOzknwHyg1oT9gV3quTWVna2oimrH8eQd8sgk3WfRK6s7185PjJ6pECgYEA9bac\\nYbzgs/onC/yiEK9jgnJtkIvyzjzVKV2M1S+IKyOqMr9+O+TbCpFKCoqksfDO3Ljo\\nC2MSEZGNPj5gDSBw2EPyavG0xedgfo7ypjFtEsayHVQHWWqRc6nl0Z1kR83G1LkC\\njtwNTRdF+rPOwjYHkcBLDF8/NkIV8YHt49SsqLsCgYBxFKglDfd2rZD/dJdBo5d/\\nh3qzbHZ+EPf1niL2dk8RBBBgNI77HMIrrPlkKISmZ3iMT58xYIY28w7O/5ofSjol\\n+Fz8RHsv7HiVGCbsmVDa3StcJdVQXo8SJGscmq/1G0cH1VLXUlhF/aVcil56ihX0\\nieINGY6XHNGW2JRUdRegoQKBgFgVnL4U/eDHPpQ3fsnIdj3fU5PL98EjYa8wkDok\\njgYZBPyoVVKXWkbRit94kE4R67aIuvbKD0IpEZ9MsRZDmPCOeysHdyyzI457JFWb\\nxmRCwrts0i2l3HrAX1jjuX1cMXk00cvw6vvF6hpTtz08LT581uqagoiq7D7luyg/\\np53dAoGAKbH4GgHJgSXEUaBUv24yOra/j3u9XMjhVhSYF+cKkZ5bwl+a75QEnVOT\\nG0WGyKskhbIzP3xOVIM32x4G+UGR5KIVIm8hmhklI85TgnlllAlmxAF59lbjk3NB\\nhP1rhMeqGY9DBBpdWaRaEp2gD0GT1BKrmxHbqKw6Vp1fRNIsa0w=\\n-----END RSA PRIVATE KEY-----\\n", "name": "tempest-keypair-866217224", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzySPH79UFtK/C3UWlLTzDs+nu0G+YeJA4+IQXnL3eQO9IQI0WC3D6fu1CgRGdDQiHLPhcvrwwbVz1ZfTtzqIX1jGkWwWI55ujm/kncK79KJ09tKddCoBNY6xcgbWX6vL69mI8jum+145d32gk12SMPv0MKwbwZYZY6ZtNhHcyqUsNj972+CxxZ3tCPl/fEkezAI0t7hJ1zrzJbElrHgNCWt9xkWeCgcGSxX+9g0GnDN8cD/Qn6izew9PcDvMjCpMswHbHa7yGTThIR74633/1EwwKqnW6mfIkqVnOQgf+VfJ+bTFZW1o5yxNtn8byAtX4JqY4382v5WqDGALq2X/r Generated-by-Nova", "fingerprint": "5d:33:0e:0d:b6:8f:c9:e2:ce:61:b6:80:b0:0d:66:17", "user_id": "7c83eb60746a45ae828022a8bd71ec18"}}'
+2022-07-21 13:26:49,428 28654 DEBUG    [tempest.lib.common.validation_resources] Validation resource key tempest-keypair-866217224 created
+2022-07-21 13:26:49,474 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 404 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips 0.044s
+2022-07-21 13:26:49,474 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'applica
+    tion/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"pool": null}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '73', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-7b79b4db-f653-4c97-963e-a5aacd3965fd', 'x-compute-request-id': 'req-7b79b4db-f653-4c97-963e-a5aacd3965fd', 'connection': 'close', 'content-type': 'application/json; charset=UTF-8', 'status': '404', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips'}
+        Body: b'{"itemNotFound": {"code": 404, "message": "Floating IP pool not found."}}'
+2022-07-21 13:26:49,475 28654 DEBUG    [tempest.lib.common.validation_resources] Error while provisioning validation resources Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}. Trying to cleanup what we provisioned so far: {'keypair': {'private_key': '-----BEGIN RSA PRIVATE KEY-----\nMIIEogIBAAKCAQEA88kjx+/VBbSvwt1FpS08w7Pp7tBvmHiQOPiEF5y93kDvSECN\nFgtw+n7tQoERnQ0Ihyz4XL68MG1c9WX07c6iF9YxpFsFiOebo5v5J3Cu/SidPbSn\nXQqATWOsXIG1l+ry+vZiPI7pvteOXd9oJNdkjD79DCsG8GWGWOmbTYR3MqlLDY/e\n9vgscWd7Qj5f3xJHswCNLe4Sdc68yWxJax4DQlrfcZFngoHBksV/vYNBpwzfHA/0\nJ+os3sPT3A7zIwqTLMB2x2u8hk04SEe+Ot9/9RMMCqp1upnyJKlZzkIH/lXyfm0x\nWVtaOcsTbZ/G8gLV+CamON/Nr+VqgxgC6tl/6wIDAQABAoIBACHOQqf3GhMwey8K\ngB3nqAV7bXUwckkybs13qNmdYrbvSj86tFXaQFB8SWpve4HLzOLx2X8C9BXDFKDz\nAoP3o4KqsTeZZ6sUcwC9IE/X0GxKtYNZCdxdGG2i5MPvOL9YVVl30SeUqdVNDvD1\nifuR4t+P3IdTcCLl8TtjKaYWOHFNw08XEpK1sKniwHiNPJZdihJcZQSlATaaNKpx\nMa0ITQAHBHphOaRLmm+z+IuBiTVcxqu/YhbdSKsOxeTD+eKUHjx07D83Ujom+Vzc\nuC6P3zmjd4YABBq8kBnqnKf3A6rcNrIyjvUGbufks7sdpB7MhwbFQP6hiAYZW0GH\nRAfPMAECgYEA/f3etb127MJsT9rbtr8sDdGEzqGy/SKRmLLrSB0ba7ddnjvUaMGP\nUGCgLudRW6/Dh45Awkh3q0rABb3bGwI0v9nXt2/BSfWmxG7LfK1GxUBUuxEELZZT\nAXOzknwHyg1oT9gV3quTWVna2oimrH8eQd8sgk3WfRK6s7185PjJ6pECgYEA9bac\nYbzgs/onC/yiEK9jgnJtkIvyzjzVKV2M1S+IKyOqMr9+O+TbCpFKCoqksfDO3Ljo\nC2MSEZGNPj5gDSBw2EPyavG0xedgfo7ypjFtEsayHVQHWWqRc6nl0Z1kR83G1LkC\njtwNTRdF+rPOwjYHkcBLDF8/NkIV8YHt49SsqLsCgYBxFKglDfd2rZD/dJdBo5d/\nh3qzbHZ+EPf1niL2dk8RBBBgNI77HMIrrPlkKISmZ3iMT58xYIY28w7O/5ofSjol\n+Fz8RHsv7HiVGCbsmVDa3StcJdVQXo8SJGscmq/1G0cH1VLXUlhF/aVcil56ihX0\nieINGY6XHNGW2JRUdRegoQKBgFgVnL4U/eDHPpQ3fsnIdj3fU5PL98EjYa8wkDok\njgYZBPyoVVKXWkbRit94kE4R67aIuvbKD0IpEZ9MsRZDmPCOeysHdyyzI457JFWb\nxmRCwrts0i2l3HrAX1jjuX1cMXk00cvw6vvF6hpTtz08LT581uqagoiq7D7luyg/\np53dAoGAKbH4GgHJgSXEUaBUv24yOra/j3u9XMjhVhSYF+cKkZ5bwl+a75QEnVOT\nG0WGyKskhbIzP3xOVIM32x4G+UGR5KIVIm8hmhklI85TgnlllAlmxAF59lbjk3NB\nhP1rhMeqGY9DBBpdWaRaEp2gD0GT1BKrmxHbqKw6Vp1fRNIsa0w=\n-----END RSA PRIVATE KEY-----\n', 'name': 'tempest-keypair-866217224', 'public_key': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzySPH79UFtK/C3UWlLTzDs+nu0G+YeJA4+IQXnL3eQO9IQI0WC3D6fu1CgRGdDQiHLPhcvrwwbVz1ZfTtzqIX1jGkWwWI55ujm/kncK79KJ09tKddCoBNY6xcgbWX6vL69mI8jum+145d32gk12SMPv0MKwbwZYZY6ZtNhHcyqUsNj972+CxxZ3tCPl/fEkezAI0t7hJ1zrzJbElrHgNCWt9xkWeCgcGSxX+9g0GnDN8cD/Qn6izew9PcDvMjCpMswHbHa7yGTThIR74633/1EwwKqnW6mfIkqVnOQgf+VfJ+bTFZW1o5yxNtn8byAtX4JqY4382v5WqDGALq2X/r Generated-by-Nova', 'fingerprint': '5d:33:0e:0d:b6:8f:c9:e2:ce:61:b6:80:b0:0d:66:17', 'user_id': '7c83eb60746a45ae828022a8bd71ec18'}}
+2022-07-21 13:26:49,503 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 202 DELETE http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-866217224 0.027s
+2022-07-21 13:26:49,504 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '0', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-d1703a94-6271-4e3d-aad4-133d0a0364a8', 'x-compute-request-id': 'req-d1703a
+    94-6271-4e3d-aad4-133d0a0364a8', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-866217224'}
+        Body: b''
+
+{1} tempest.api.compute.volumes.test_volumes_get.VolumesGetTestJSON.test_volume_create_get_delete [3.034039s] ... ok
+{2} tempest.api.compute.volumes.test_volumes_negative.VolumesNegativeTest.test_create_volume_with_invalid_size [0.204655s] ... ok
+{2} tempest.api.compute.volumes.test_volumes_negative.VolumesNegativeTest.test_create_volume_with_size_zero [0.016702s] ... ok
+{2} tempest.api.compute.volumes.test_volumes_negative.VolumesNegativeTest.test_create_volume_without_passing_size [0.019245s] ... ok
+{2} tempest.api.compute.volumes.test_volumes_negative.VolumesNegativeTest.test_delete_invalid_volume_id [0.057119s] ... ok
+{2} tempest.api.compute.volumes.test_volumes_negative.VolumesNegativeTest.test_delete_volume_without_passing_volume_id [0.013866s] ... ok
+{2} tempest.api.compute.volumes.test_volumes_negative.VolumesNegativeTest.test_get_volume_without_passing_volume_id [0.012189s] ... ok
+{2} tempest.api.compute.volumes.test_volumes_negative.VolumesNegativeTest.test_volume_delete_nonexistent_volume_id [0.050279s] ... ok
+{2} tempest.api.compute.volumes.test_volumes_negative.VolumesNegativeTest.test_volume_get_nonexistent_volume_id [0.046113s] ... ok
+{1} tempest.api.compute.volumes.test_volumes_list.VolumesTestJSON.test_volume_list [0.077568s] ... ok
+{1} tempest.api.compute.volumes.test_volumes_list.VolumesTestJSON.test_volume_list_param_limit [0.076511s] ... ok
+{1} tempest.api.compute.volumes.test_volumes_list.VolumesTestJSON.test_volume_list_param_offset_and_limit [0.149498s] ... ok
+{1} tempest.api.compute.volumes.test_volumes_list.VolumesTestJSON.test_volume_list_with_detail_param_limit [0.070138s] ... ok
+{1} tempest.api.compute.volumes.test_volumes_list.VolumesTestJSON.test_volume_list_with_detail_param_offset_and_limit [0.139151s] ... ok
+{1} tempest.api.compute.volumes.test_volumes_list.VolumesTestJSON.test_volume_list_with_details [0.072571s] ... ok
+{2} tempest.api.volume.admin.test_group_snapshots.GroupSnapshotsTest.test_create_group_from_group_snapshot [11.962440s] ... ok
+{1} tempest.api.volume.admin.test_backends_capabilities.BackendsCapabilitiesAdminTestsJSON.test_compare_volume_stats_values [0.091638s] ... ok
+{1} tempest.api.volume.admin.test_backends_capabilities.BackendsCapabilitiesAdminTestsJSON.test_get_capabilities_backend [0.042620s] ... ok
+{0} tempest.api.compute.volumes.test_attach_volume.AttachVolumeMultiAttachTest.test_boot_from_multiattach_volume [24.224672s] ... ok
+{1} tempest.api.volume.admin.test_groups.GroupsV320Test.test_reset_group_status [3.067030s] ... ok
+{1} setUpClass (tempest.api.volume.admin.test_multi_backend.VolumeMultiBackendTest) ... SKIPPED: Cinder multi-backend feature disabled
+{2} tempest.api.volume.admin.test_group_snapshots.GroupSnapshotsTest.test_delete_group_snapshots_following_updated_volumes [17.028083s] ... ok
+{1} tempest.api.volume.admin.test_snapshots_actions.SnapshotsActionsTest.test_reset_snapshot_status [0.295441s] ... ok
+{1} tempest.api.volume.admin.test_snapshots_actions.SnapshotsActionsTest.test_snapshot_force_delete_when_snapshot_is_creating [3.563780s] ... ok
+{2} tempest.api.volume.admin.test_group_snapshots.GroupSnapshotsTest.test_group_snapshot_create_show_list_delete [8.793557s] ... ok
+{1} tempest.api.volume.admin.test_snapshots_actions.SnapshotsActionsTest.test_snapshot_force_delete_when_snapshot_is_deleting [3.537009s] ... ok
+{2} tempest.api.volume.admin.test_group_type_specs.GroupTypeSpecsTest.test_group_type_specs_create_show_update_list_delete [0.552035s] ... ok
+{1} tempest.api.volume.admin.test_snapshots_actions.SnapshotsActionsTest.test_snapshot_force_delete_when_snapshot_is_error [3.532618s] ... ok
+{1} tempest.api.volume.admin.test_snapshots_actions.SnapshotsActionsTest.test_snapshot_force_delete_when_snapshot_is_error_deleting [3.527162s] ... ok
+{1} tempest.api.volume.admin.test_snapshots_actions.SnapshotsActionsTest.test_update_snapshot_status [0.248775s] ... ok
+{1} tempest.api.volume.admin.test_volume_hosts.VolumeHostsAdminTestsJSON.test_list_hosts [0.133411s] ... ok
+{1} tempest.api.volume.admin.test_volume_hosts.VolumeHostsAdminTestsJSON.test_show_host [0.211579s] ... ok
+{2} tempest.api.volume.admin.test_groups.GroupsTest.test_group_create_show_list_delete [8.021156s] ... ok
+{1} tempest.api.volume.admin.test_volume_services_negative.VolumeServicesNegativeTest.test_disable_log_reason_with_no_reason [0.019223s] ... ok
+{1} tempest.api.volume.admin.test_volume_services_negative.VolumeServicesNegativeTest.test_disable_service_with_invalid_binary [0.027349s] ... ok
+{1} tempest.api.volume.admin.test_volume_services_negative.VolumeServicesNegativeTest.test_enable_service_with_invalid_host [0.027443s] ... ok
+{1} tempest.api.volume.admin.test_volume_services_negative.VolumeServicesNegativeTest.test_freeze_host_with_invalid_host [0.029129s] ... ok
+{1} tempest.api.volume.admin.test_volume_services_negative.VolumeServicesNegativeTest.test_thaw_host_with_invalid_host [0.028885s] ... ok
+{2} tempest.api.volume.admin.test_groups.GroupsTest.test_group_update [10.924204s] ... ok
+{1} tempest.api.volume.admin.test_volume_snapshot_quotas_negative.VolumeSnapshotQuotasNegativeTestJSON.test_quota_volume_gigabytes_snapshots [0.300485s] ... ok
+{1} tempest.api.volume.admin.test_volume_snapshot_quotas_negative.VolumeSnapshotQuotasNegativeTestJSON.test_quota_volume_snapshots [0.068715s] ... ok
+{1} tempest.api.volume.admin.test_volume_types.VolumeTypesTest.test_volume_type_create_get_delete [0.186416s] ... ok
+{1} tempest.api.volume.admin.test_volume_types.VolumeTypesTest.test_volume_type_encryption_create_get_update_delete [0.332071s] ... ok
+{1} tempest.api.volume.admin.test_volume_types.VolumeTypesTest.test_volume_type_list [0.039541s] ... ok
+{1} tempest.api.volume.admin.test_volume_types.VolumeTypesTest.test_volume_type_update [0.188447s] ... ok
+{2} tempest.api.volume.admin.test_groups.GroupsV314Test.test_create_group_from_group [10.512904s] ... ok
+{2} setUpClass (tempest.api.volume.admin.test_volume_manage.VolumeManageAdminTest) ... SKIPPED: Manage volume tests are disabled
+{2} tempest.api.volume.admin.test_volume_pools.VolumePoolsAdminTestsJSON.test_get_pools_without_details [0.201622s] ... ok
+{2} tempest.api.volume.admin.test_volume_quota_classes.VolumeQuotaClassesTest.test_show_default_quota [0.236499s] ... ok
+{2} tempest.api.volume.admin.test_volume_quota_classes.VolumeQuotaClassesTest.test_update_default_quota [0.936493s] ... ok
+{1} tempest.api.volume.admin.test_volumes_actions.VolumesActionsTest.test_force_detach_volume [10.150320s] ... ok
+{0} tempest.api.compute.volumes.test_attach_volume.AttachVolumeMultiAttachTest.test_list_get_volume_attachments_multiattach [79.291606s] ... ok
+{0} tempest.api.compute.volumes.test_attach_volume.AttachVolumeMultiAttachTest.test_resize_server_with_multiattached_volume ... SKIPPED: Resize not available.
+{1} tempest.api.volume.admin.test_volumes_actions.VolumesActionsTest.test_volume_force_delete_when_volume_is_attaching [3.655047s] ... ok
+{2} tempest.api.volume.admin.test_volume_quotas.VolumeQuotasAdminTestJSON.test_delete_quota [0.403966s] ... ok
+{2} tempest.api.volume.admin.test_volume_quotas.VolumeQuotasAdminTestJSON.test_list_default_quotas [0.049201s] ... ok
+{2} tempest.api.volume.admin.test_volume_quotas.VolumeQuotasAdminTestJSON.test_list_quotas [0.065681s] ... ok
+{1} tempest.api.volume.admin.test_volumes_actions.VolumesActionsTest.test_volume_force_delete_when_volume_is_creating [3.685361s] ... ok
+{2} tempest.api.volume.admin.test_volume_quotas.VolumeQuotasAdminTestJSON.test_quota_usage [2.800896s] ... ok
+{1} tempest.api.volume.admin.test_volumes_actions.VolumesActionsTest.test_volume_force_delete_when_volume_is_error [3.661884s] ... ok
+{1} tempest.api.volume.admin.test_volumes_actions.VolumesActionsTest.test_volume_force_delete_when_volume_is_maintenance [2.611792s] ... ok
+{2} tempest.api.volume.admin.test_volume_quotas.VolumeQuotasAdminTestJSON.test_quota_usage_after_volume_transfer [4.534950s] ... ok
+{2} tempest.api.volume.admin.test_volume_quotas.VolumeQuotasAdminTestJSON.test_show_quota_usage [0.083280s] ... ok
+{2} tempest.api.volume.admin.test_volume_quotas.VolumeQuotasAdminTestJSON.test_update_all_quota_resources_for_tenant [0.338395s] ... ok
+{1} tempest.api.volume.admin.test_volumes_actions.VolumesActionsTest.test_volume_reset_status [2.841734s] ... ok
+{1} tempest.api.volume.test_availability_zone.AvailabilityZoneTestJSON.test_get_availability_zone_list [0.129761s] ... ok
+{2} tempest.api.volume.admin.test_volume_retype.VolumeRetypeWithoutMigrationTest.test_available_volume_retype [4.065850s] ... ok
+{0} tempest.api.compute.volumes.test_attach_volume.AttachVolumeMultiAttachTest.test_snapshot_volume_backed_multiattach [25.121388s] ... ok
+{1} tempest.api.volume.test_snapshot_metadata.SnapshotMetadataTestJSON.test_crud_snapshot_metadata [0.322892s] ... ok
+{1} tempest.api.volume.test_snapshot_metadata.SnapshotMetadataTestJSON.test_update_show_snapshot_metadata_item [0.270402s] ... ok
+{2} tempest.api.volume.admin.test_volume_type_access.VolumeTypesAccessTest.test_volume_type_access_list [0.343755s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_create_invalid_body [0.018721s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_create_none_body [0.018587s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_create_nonexistent_type_id [0.042343s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_delete_nonexistent_volume_type_id [0.023228s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_get_nonexistent_extra_spec_name [0.030223s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_get_nonexistent_volume_type_id [0.025346s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_list_nonexistent_volume_type_id [0.024476s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_update_multiple_extra_spec [0.017150s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_update_no_body [0.015618s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_update_none_extra_spec_id [0.041712s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_update_nonexistent_extra_spec_id [0.041993s] ... ok
+{2} tempest.api.volume.admin.test_volume_types_extra_specs_negative.ExtraSpecsNegativeTest.test_update_nonexistent_type_id [0.040778s] ... ok
+{0} tempest.api.compute.volumes.test_volume_snapshots.VolumesSnapshotsTestJSON.test_volume_snapshot_create_get_list_delete [6.511761s] ... ok
+{1} tempest.api.volume.test_volume_transfers.VolumesTransfersV355Test.test_create_get_list_accept_volume_transfer [4.806671s] ... ok
+{1} tempest.api.volume.test_volume_transfers.VolumesTransfersV355Test.test_create_list_delete_volume_transfer [3.791719s] ... ok
+{0} tempest.api.volume.admin.test_encrypted_volumes_extend.EncryptedVolumesExtendAttachedTest.test_extend_attached_encrypted_volume_luksv1 ... SKIPPED: Attached encrypted volume extend is disabled.
+{2} tempest.api.volume.admin.test_volumes_list.VolumesListAdminTestJSON.test_volume_list_param_tenant [1.713562s] ... ok
+{1} tempest.api.volume.test_volumes_clone_negative.VolumesCloneNegativeTest.test_create_from_volume_decreasing_size [2.686368s] ... ok
+{2} tempest.api.volume.test_versions.VersionsTest.test_list_versions [0.014388s] ... ok
+{2} tempest.api.volume.test_versions.VersionsTest.test_show_version [0.205623s] ... ok
+{0} tempest.api.volume.admin.test_group_snapshots.GroupSnapshotsV319Test.test_reset_group_snapshot_status [9.256076s] ... ok
+{0} tempest.api.volume.admin.test_group_types.GroupTypesTest.test_group_type_create_list_update_show_delete [0.351006s] ... ok
+{0} tempest.api.volume.admin.test_group_types.GroupTypesTest.test_group_type_list_by_optional_params [0.276554s] ... ok
+{2} tempest.api.volume.test_volumes_actions.VolumesActionsTest.test_attach_detach_volume_to_instance [7.024206s] ... ok
+{0} tempest.api.volume.admin.test_qos.QosSpecsTestJSON.test_associate_disassociate_qos [0.441094s] ... ok
+{0} tempest.api.volume.admin.test_qos.QosSpecsTestJSON.test_create_delete_qos_with_back_end_consumer [0.132115s] ... ok
+{1} tempest.api.volume.test_volumes_extend.VolumesExtendAttachedTest.test_extend_attached_volume [14.713678s] ... ok
+{0} tempest.api.volume.admin.test_qos.QosSpecsTestJSON.test_create_delete_qos_with_both_consumer [0.145562s] ... ok
+{0} tempest.api.volume.admin.test_qos.QosSpecsTestJSON.test_create_delete_qos_with_front_end_consumer [0.123884s] ... ok
+{0} tempest.api.volume.admin.test_qos.QosSpecsTestJSON.test_get_qos [0.027408s] ... ok
+{0} tempest.api.volume.admin.test_qos.QosSpecsTestJSON.test_list_qos [0.029455s] ... ok
+{0} tempest.api.volume.admin.test_qos.QosSpecsTestJSON.test_set_unset_qos_key [0.167866s] ... ok
+{2} tempest.api.volume.test_volumes_actions.VolumesActionsTest.test_get_volume_attachment [5.858442s] ... ok
+{0} setUpClass (tempest.api.volume.admin.test_snapshot_manage.SnapshotManageAdminTest) ... SKIPPED: Manage snapshot tests are disabled
+{2} tempest.api.volume.test_volumes_actions.VolumesActionsTest.test_reserve_unreserve_volume [0.201006s] ... ok
+{2} tempest.api.volume.test_volumes_actions.VolumesActionsTest.test_volume_bootable [0.189515s] ... ok
+{2} tempest.api.volume.test_volumes_actions.VolumesActionsTest.test_volume_readonly_update [0.202873s] ... ok
+{0} tempest.api.volume.admin.test_user_messages.UserMessagesTest.test_delete_message [1.909466s] ... ok
+{0} tempest.api.volume.admin.test_user_messages.UserMessagesTest.test_list_show_messages [1.496659s] ... ok
+{0} tempest.api.volume.admin.test_volume_quotas_negative.VolumeQuotasNegativeTestJSON.test_quota_volume_gigabytes [0.719125s] ... ok
+{0} tempest.api.volume.admin.test_volume_quotas_negative.VolumeQuotasNegativeTestJSON.test_quota_volumes [1.144765s] ... ok
+{0} tempest.api.volume.admin.test_volume_quotas_negative.VolumeQuotasNegativeTestJSON.test_volume_extend_gigabytes_quota_deviation [0.959998s] ... ok
+{2} tempest.api.volume.test_volumes_actions.VolumesActionsTest.test_volume_upload [18.030797s] ... ok
+{0} setUpClass (tempest.api.volume.admin.test_volume_retype.VolumeRetypeWithMigrationTest) ... SKIPPED: Cinder multi-backend feature disabled
+{1} tempest.api.volume.test_volumes_extend.VolumesExtendTest.test_volume_extend [17.865744s] ... ok
+{0} tempest.api.volume.admin.test_volume_services.VolumesServicesTestJSON.test_get_service_by_host_name [0.042729s] ... ok
+{0} tempest.api.volume.admin.test_volume_services.VolumesServicesTestJSON.test_get_service_by_service_and_host_name [0.032039s] ... ok
+{0} tempest.api.volume.admin.test_volume_services.VolumesServicesTestJSON.test_get_service_by_service_binary_name [0.027325s] ... ok
+{1} tempest.api.volume.test_volumes_extend.VolumesExtendTest.test_volume_extend_when_volume_has_snapshot [5.909399s] ... ok
+{0} tempest.api.volume.admin.test_volume_services.VolumesServicesTestJSON.test_get_service_by_volume_host_name [2.686120s] ... ok
+{0} tempest.api.volume.admin.test_volume_services.VolumesServicesTestJSON.test_list_services [0.027029s] ... ok
+{0} tempest.api.volume.admin.test_volume_types_extra_specs.VolumeTypesExtraSpecsTest.test_volume_type_extra_spec_create_get_delete [0.198701s] ... ok
+{0} tempest.api.volume.admin.test_volume_types_extra_specs.VolumeTypesExtraSpecsTest.test_volume_type_extra_specs_list [0.092674s] ... ok
+{0} tempest.api.volume.admin.test_volume_types_extra_specs.VolumeTypesExtraSpecsTest.test_volume_type_extra_specs_update [0.274347s] ... ok
+{0} tempest.api.volume.admin.test_volume_types_negative.VolumeTypesNegativeTest.test_create_volume_type_encryption_nonexistent_type_id [0.213209s] ... ok
+{0} tempest.api.volume.admin.test_volume_types_negative.VolumeTypesNegativeTest.test_create_with_empty_name [0.017100s] ... ok
+{0} tempest.api.volume.admin.test_volume_types_negative.VolumeTypesNegativeTest.test_create_with_repeated_name [0.068622s] ... ok
+{0} tempest.api.volume.admin.test_volume_types_negative.VolumeTypesNegativeTest.test_delete_nonexistent_type_id [0.026895s] ... ok
+{0} tempest.api.volume.admin.test_volume_types_negative.VolumeTypesNegativeTest.test_get_nonexistent_type_id [0.021804s] ... ok
+{2} tempest.api.volume.test_volumes_clone.VolumesCloneTest.test_create_from_bootable_volume [18.997116s] ... ok
+{0} tempest.api.volume.test_extensions.ExtensionsTestJSON.test_list_extensions [0.133810s] ... ok
+{2} tempest.api.volume.test_volumes_clone.VolumesCloneTest.test_create_from_volume [3.784212s] ... ok
+{0} tempest.api.volume.test_image_metadata.VolumesImageMetadata.test_update_show_delete_image_metadata [0.227220s] ... ok
+{2} tempest.api.volume.test_volumes_get.VolumesGetTest.test_volume_create_get_update_delete [6.588258s] ... ok
+{0} tempest.api.volume.test_volume_absolute_limits.AbsoluteLimitsTests.test_get_volume_absolute_limits [0.073472s] ... ok
+{2} tempest.api.volume.test_volumes_get.VolumesGetTest.test_volume_create_get_update_delete_as_clone [10.856520s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots.VolumesSnapshotTestJSON.test_snapshot_create_delete_with_volume_in_use [38.987449s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots.VolumesSnapshotTestJSON.test_snapshot_create_get_list_update_delete [3.567643s] ... ok
+{0} tempest.api.volume.test_volume_delete_cascade.VolumesDeleteCascade.test_volume_delete_cascade [8.298116s] ... ok
+{0} tempest.api.volume.test_volume_delete_cascade.VolumesDeleteCascade.test_volume_from_snapshot_cascade_delete [7.353200s] ... ok
+{2} tempest.api.volume.test_volumes_get.VolumesGetTest.test_volume_create_get_update_delete_from_image [18.127899s] ... ok
+{2} tempest.api.volume.test_volumes_get.VolumesSummaryTest.test_show_volume_summary [0.185598s] ... ok
+{0} tempest.api.volume.test_volume_metadata.VolumesMetadataTest.test_crud_volume_metadata [0.335198s] ... ok
+{0} tempest.api.volume.test_volume_metadata.VolumesMetadataTest.test_update_show_volume_metadata_item [0.224855s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots.VolumesSnapshotTestJSON.test_snapshot_create_offline_delete_online [20.522813s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_attach_volumes_with_nonexistent_volume_id [6.715824s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_from_deactivated_image [0.481103s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots.VolumesSnapshotTestJSON.test_volume_from_snapshot [7.213034s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_from_image_with_decreasing_size [0.339929s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_with_invalid_size [0.017532s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_with_nonexistent_snapshot_id [0.025725s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_with_nonexistent_source_volid [0.028566s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_with_nonexistent_volume_type [0.028528s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_with_size_negative [0.015068s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_with_size_zero [0.016627s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_create_volume_without_passing_size [0.014454s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_delete_invalid_volume_id [0.027119s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_delete_volume_without_passing_volume_id [0.013316s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_detach_volumes_with_invalid_volume_id [0.031496s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_get_invalid_volume_id [0.030498s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_get_volume_without_passing_volume_id [0.012783s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_list_volumes_detail_with_invalid_status [0.050620s] ... ok
+{0} tempest.api.volume.test_volume_transfers.VolumesTransfersTest.test_create_get_list_accept_volume_transfer [3.825078s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_list_volumes_detail_with_nonexistent_name [0.045929s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_list_volumes_with_invalid_status [0.034884s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_list_volumes_with_nonexistent_name [0.039941s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_reserve_volume_with_negative_volume_status [0.143700s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_reserve_volume_with_nonexistent_volume_id [0.027799s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_unreserve_volume_with_nonexistent_volume_id [0.028956s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_update_volume_with_empty_volume_id [0.014400s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_update_volume_with_invalid_volume_id [0.038364s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_update_volume_with_nonexistent_volume_id [0.028311s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_volume_delete_nonexistent_volume_id [0.028330s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_volume_extend_with_None_size [0.016080s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_volume_extend_with_non_number_size [0.016948s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_volume_extend_with_nonexistent_volume_id [0.028579s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_volume_extend_with_size_smaller_than_original_size [0.015194s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_volume_extend_without_passing_volume_id [0.030251s] ... ok
+{2} tempest.api.volume.test_volumes_negative.VolumesNegativeTest.test_volume_get_nonexistent_volume_id [0.029213s] ... ok
+{0} tempest.api.volume.test_volume_transfers.VolumesTransfersTest.test_create_list_delete_volume_transfer [2.718550s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots.VolumesSnapshotTestJSON.test_volume_from_snapshot_no_size [7.217118s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list [0.045028s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_by_name [0.044529s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_details_by_name [0.060837s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_details_pagination [0.247132s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_details_with_multiple_params [0.115357s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_pagination [0.191811s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_param_display_name_and_status [0.045789s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_with_detail_param_display_name_and_status [0.058737s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_with_detail_param_marker [0.060824s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_with_detail_param_metadata [0.062296s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_with_details [0.057633s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volume_list_with_param_metadata [0.046045s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volumes_list_by_availability_zone [0.108284s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volumes_list_by_bootable [0.085675s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volumes_list_by_status [0.092506s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volumes_list_details_by_availability_zone [0.061807s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_limit [0.033390s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volumes_list_details_by_bootable [0.056302s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_limit_equals_infinite [0.061141s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_limit_equals_zero [0.025426s] ... ok
+{0} tempest.api.volume.test_volumes_list.VolumesListTestJSON.test_volumes_list_details_by_status [0.059276s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_marker [0.067087s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_offset [0.027717s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_sort_created_at_asc [0.028291s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_sort_created_at_desc [0.029595s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_sort_id_asc [0.030835s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_sort_id_desc [0.030086s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_sort_name_asc [0.030331s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshot_list_param_sort_name_desc [0.031843s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshots_list_details_with_params [0.092786s] ... ok
+{2} tempest.api.volume.test_volumes_snapshots_list.VolumesSnapshotListTestJSON.test_snapshots_list_with_params [0.090067s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots_negative.VolumesSnapshotNegativeTestJSON.test_create_snapshot_with_nonexistent_volume_id [0.173148s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots_negative.VolumesSnapshotNegativeTestJSON.test_create_snapshot_without_passing_volume_id [0.028464s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots_negative.VolumesSnapshotNegativeTestJSON.test_list_snapshot_invalid_param_limit [0.017075s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots_negative.VolumesSnapshotNegativeTestJSON.test_list_snapshots_invalid_param_marker [0.030551s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots_negative.VolumesSnapshotNegativeTestJSON.test_list_snapshots_invalid_param_sort [0.017731s] ... ok
+{1} tempest.api.volume.test_volumes_snapshots_negative.VolumesSnapshotNegativeTestJSON.test_volume_from_snapshot_decreasing_size [4.776692s] ... ok
+
+==============================
+Failed 3 tests - output below:
+==============================
+
+tempest.api.compute.volumes.test_attach_volume_negative.AttachVolumeNegativeTest.test_attach_attached_volume_to_different_server[id-ee37a796-2afb-11e7-bc0f-fa163e65f5ce,negative]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+
+Captured traceback-1:
+~~~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+    
+During handling of the above exception, another exception occurred:
+
+
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 208, in setUp
+    raise SetupError(details)
+
+    fixtures.fixture.SetupError: {}
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2022-07-21 13:26:48,295 28654 DEBUG    [tempest.lib.common.validation_resources] Requested setup of ValidationResources keypair True, floating IP True, security group False
+2022-07-21 13:26:48,296 28654 DEBUG    [tempest.lib.common.validation_resources] Requested validation resources keypair True, floating IP True, security group False
+2022-07-21 13:26:48,701 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 200 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs 0.404s
+2022-07-21 13:26:48,702 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"keypair": {"name": "tempest-keypair-57957951"}}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:48 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '2303', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-a01c0d89-81af-4ffc-b092-ba858361abc8', 'x-compute-request-id': 'req-a01c0d89-81af-4ffc-b092-ba858361abc8', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs'}
+        Body: b'{"keypair": {"private_key": "-----BEGIN RSA PRIVATE KEY-----\\nMIIEpAIBAAKCAQEAv7uE02s7wVhAHWm27n1igOqwHQcZmpZlXjTc4Q4xQSiRXaOz\\ntrd3H2A9JqKIhQUE6hQEVI0Qd4DTenf9+S2EhRhoxmotdLGFOZ4fx9I+UKWx2T2D\\njgI+Yfe98kQCsoEXa6zidvRhvkCssTurvVbjyqGuF+fezGD+DZGWZRxeg9vadz98\\nE/zrcxeTZe1xTSJQUg1CjG8Mm0DAb/AF8SXo2OGCnJ2q3RiYlmlFF2d5ezvAijXb\\nTqeN4PnBYC0/PP+7drHIHBcDFalpl0II9LchMLo60vvKQi9bNEbbFq2KkYhaTruL\\n4k+XGjYEP7mvhg5on9AFJzv+5BDj0LcyAAnevQIDAQABAoIBAQC8eHJa+OAmcL+l\\nqhM+YFaB7zDrd909TnWao1A0kqTsLhqm95JjG/mnCA1UexTD3Wk1SDPxgTEcp7A6\\nhNVNKedIhfQIhrrkKNSTDNKktBC5agdnSsaUw7PazZMUILKeEbOaDroWwKeMQzr+\\nhW+OkWkd+MyPh0hFk1posCIshjSKW8+35u5IyI1F+H3HyqpHJKu2bepaoqB7XZ5i\\nkdMqPfxuH5Hye8YTmhvPbWRX8JW9bSTjoQQH3n+ZXWVCuZCqqs9yWRoMDsAALaXl\\nhc00RFoj/sczuZvJKcaOP0vspxS2drzhzhLf3H8f9xoI5oJVVDyhnFakdTtiX3yv\\nB9xWlb5pAoGBAPSBbsOqycx2IsoDoZLvC0KGfDqserqa2eTwGRlgX8Sc2/NEm4xw\\nCSA561EdZ8utaNSBk1Ku8Ym4SHt1+AW3xpwY6UzUiu5u/w0LMuu894jVY6CEdVBk\\nXx90qVERox0rBRaBMxx8CG6r5KQgk6HluOdd0wwTuIC8j+m9ZlHoh7d/AoGBAMi+\\n+W1c6M2H9/FeAL1esLedcrcsOTq/NxfmfWdGsJvceckJAJlAKeoFjnH48itWEvBK\\nYr9lKrqSnTPz7K5z0/L9hQlkzpwZJN+XIZjr/FpXH1afff92ZKHLqBW9Fk+/8PfW\\nbCmxAPX6TlDOgJJJyEzWBjDvzDKxhrgBSeJMq2fDAoGAFe7yd7z/Y0cJseOHf/3P\\nncUgqcbFL64qc74SElOx45pKpNT3uy5lsy1e7aTcpcnFiKKjC5zD8B3G6sRXXnPw\\n7hnR++FpISB14r6pb7pA3lZ+HG0ldPO8EL9PXQVfA4PTbgRjCGAcBYmH9i0x8SkB\\nYEfrYb73Ix1HL6mc3yYj3pMCgYEAr/TU5Esfs6eOaH4g39vzwb28I1ob/6ZDQCvD\\nl5aajsM97Dx7zdgz5PBh3vx6KAoWJ5DL5T9jqI2CRVt1BaR5Du+wgH9fqetQKrtp\\ns4SFeRoMWf0Kj7TSmA7Okd9fgx+Ws2W7AQAo+3Ie2y1l/NO3QcIHQzWtInIAx6A5\\nhqX1R8kCgYBelfSuy66s9RqeKjZglNX112EM1+7j/1AORM7NTtjlOMQB16zBsXv2\\nJQaCHfjH0JZdvvcyLKdKhVqg/PsvN6GJ2u4bm+jQBqCJzPFo4mGHNiM/Iaz6BQse\\nF5vI6l6/HoJjWK89jp+oYzwWmdS4kMVsV5cFReF1y3SQZ+vXsSWjlQ==\\n-----END RSA PRIVATE KEY-----\\n", "name": "tempest-keypair-57957951", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/u4TTazvBWEAdabbufWKA6rAdBxmalmVeNNzhDjFBKJFdo7O2t3cfYD0mooiFBQTqFARUjRB3gNN6d/35LYSFGGjGai10sYU5nh/H0j5QpbHZPYOOAj5h973yRAKygRdrrOJ29GG+QKyxO6u9VuPKoa4X597MYP4NkZZlHF6D29p3P3wT/OtzF5Nl7XFNIlBSDUKMbwybQMBv8AXxJejY4YKcnardGJiWaUUXZ3l7O8CKNdtOp43g+cFgLT88/7t2scgcFwMVqWmXQgj0tyEwujrS+8pCL1s0RtsWrYqRiFpOu4viT5caNgQ/ua+GDmif0AUnO/7kEOPQtzIACd69 Generated-by-Nova", "fingerprint": "06:27:6e:15:55:4e:4b:c5:2e:91:f2:df:03:24:55:7b", "user_id": "7c83eb60746a45ae828022a8bd71ec18"}}'
+2022-07-21 13:26:48,708 28654 DEBUG    [tempest.lib.common.validation_resources] Validation resource key tempest-keypair-57957951 created
+2022-07-21 13:26:48,911 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 404 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips 0.202s
+2022-07-21 13:26:48,911 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'applic
+    ation/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"pool": null}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:48 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '73', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-171e6f2b-d4a5-4c30-a840-9cf212a4a32d', 'x-compute-request-id': 'req-171e6f2b-d4a5-4c30-a840-9cf212a4a32d', 'connection': 'close', 'content-type': 'application/json; charset=UTF-8', 'status': '404', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips'}
+        Body: b'{"itemNotFound": {"code": 404, "message": "Floating IP pool not found."}}'
+2022-07-21 13:26:48,912 28654 DEBUG    [tempest.lib.common.validation_resources] Error while provisioning validation resources Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}. Trying to cleanup what we provisioned so far: {'keypair': {'private_key': '-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAv7uE02s7wVhAHWm27n1igOqwHQcZmpZlXjTc4Q4xQSiRXaOz\ntrd3H2A9JqKIhQUE6hQEVI0Qd4DTenf9+S2EhRhoxmotdLGFOZ4fx9I+UKWx2T2D\njgI+Yfe98kQCsoEXa6zidvRhvkCssTurvVbjyqGuF+fezGD+DZGWZRxeg9vadz98\nE/zrcxeTZe1xTSJQUg1CjG8Mm0DAb/AF8SXo2OGCnJ2q3RiYlmlFF2d5ezvAijXb\nTqeN4PnBYC0/PP+7drHIHBcDFalpl0II9LchMLo60vvKQi9bNEbbFq2KkYhaTruL\n4k+XGjYEP7mvhg5on9AFJzv+5BDj0LcyAAnevQIDAQABAoIBAQC8eHJa+OAmcL+l\nqhM+YFaB7zDrd909TnWao1A0kqTsLhqm95JjG/mnCA1UexTD3Wk1SDPxgTEcp7A6\nhNVNKedIhfQIhrrkKNSTDNKktBC5agdnSsaUw7PazZMUILKeEbOaDroWwKeMQzr+\nhW+OkWkd+MyPh0hFk1posCIshjSKW8+35u5IyI1F+H3HyqpHJKu2bepaoqB7XZ5i\nkdMqPfxuH5Hye8YTmhvPbWRX8JW9bSTjoQQH3n+ZXWVCuZCqqs9yWRoMDsAALaXl\nhc00RFoj/sczuZvJKcaOP0vspxS2drzhzhLf3H8f9xoI5oJVVDyhnFakdTtiX3yv\nB9xWlb5pAoGBAPSBbsOqycx2IsoDoZLvC0KGfDqserqa2eTwGRlgX8Sc2/NEm4xw\nCSA561EdZ8utaNSBk1Ku8Ym4SHt1+AW3xpwY6UzUiu5u/w0LMuu894jVY6CEdVBk\nXx90qVERox0rBRaBMxx8CG6r5KQgk6HluOdd0wwTuIC8j+m9ZlHoh7d/AoGBAMi+\n+W1c6M2H9/FeAL1esLedcrcsOTq/NxfmfWdGsJvceckJAJlAKeoFjnH48itWEvBK\nYr9lKrqSnTPz7K5z0/L9hQlkzpwZJN+XIZjr/FpXH1afff92ZKHLqBW9Fk+/8PfW\nbCmxAPX6TlDOgJJJyEzWBjDvzDKxhrgBSeJMq2fDAoGAFe7yd7z/Y0cJseOHf/3P\nncUgqcbFL64qc74SElOx45pKpNT3uy5lsy1e7aTcpcnFiKKjC5zD8B3G6sRXXnPw\n7hnR++FpISB14r6pb7pA3lZ+HG0ldPO8EL9PXQVfA4PTbgRjCGAcBYmH9i0x8SkB\nYEfrYb73Ix1HL6mc3yYj3pMCgYEAr/TU5Esfs6eOaH4g39vzwb28I1ob/6ZDQCvD\nl5aajsM97Dx7zdgz5PBh3vx6KAoWJ5DL5T9jqI2CRVt1BaR5Du+wgH9fqetQKrtp\ns4SFeRoMWf0Kj7TSmA7Okd9fgx+Ws2W7AQAo+3Ie2y1l/NO3QcIHQzWtInIAx6A5\nhqX1R8kCgYBelfSuy66s9RqeKjZglNX112EM1+7j/1AORM7NTtjlOMQB16zBsXv2\nJQaCHfjH0JZdvvcyLKdKhVqg/PsvN6GJ2u4bm+jQBqCJzPFo4mGHNiM/Iaz6BQse\nF5vI6l6/HoJjWK89jp+oYzwWmdS4kMVsV5cFReF1y3SQZ+vXsSWjlQ==\n-----END RSA PRIVATE KEY-----\n', 'name': 'tempest-keypair-57957951', 'public_key': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/u4TTazvBWEAdabbufWKA6rAdBxmalmVeNNzhDjFBKJFdo7O2t3cfYD0mooiFBQTqFARUjRB3gNN6d/35LYSFGGjGai10sYU5nh/H0j5QpbHZPYOOAj5h973yRAKygRdrrOJ29GG+QKyxO6u9VuPKoa4X597MYP4NkZZlHF6D29p3P3wT/OtzF5Nl7XFNIlBSDUKMbwybQMBv8AXxJejY4YKcnardGJiWaUUXZ3l7O8CKNdtOp43g+cFgLT88/7t2scgcFwMVqWmXQgj0tyEwujrS+8pCL1s0RtsWrYqRiFpOu4viT5caNgQ/ua+GDmif0AUnO/7kEOPQtzIACd69 Generated-by-Nova', 'fingerprint': '06:27:6e:15:55:4e:4b:c5:2e:91:f2:df:03:24:55:7b', 'user_id': '7c83eb60746a45ae828022a8bd71ec18'}}
+2022-07-21 13:26:48,952 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 202 DELETE http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-57957951 0.039s
+2022-07-21 13:26:48,953 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:48 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '0', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-1b18b41a-5474-4bdf-b42a-9a7b58a1ff87', 'x-compute-request-id': 'req-1b1
+    8b41a-5474-4bdf-b42a-9a7b58a1ff87', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-57957951'}
+        Body: b''
+
+
+tempest.api.compute.volumes.test_attach_volume_negative.AttachVolumeNegativeTest.test_attach_attached_volume_to_same_server[id-aab919e2-d992-4cbb-a4ed-745c2475398c,negative]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+
+Captured traceback-1:
+~~~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+    
+During handling of the above exception, another exception occurred:
+
+
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 208, in setUp
+    raise SetupError(details)
+
+    fixtures.fixture.SetupError: {}
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2022-07-21 13:26:48,960 28654 DEBUG    [tempest.lib.common.validation_resources] Requested setup of ValidationResources keypair True, floating IP True, security group False
+2022-07-21 13:26:48,961 28654 DEBUG    [tempest.lib.common.validation_resources] Requested validation resources keypair True, floating IP True, security group False
+2022-07-21 13:26:49,178 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 200 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs 0.216s
+2022-07-21 13:26:49,179 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"keypair": {"name": "tempest-keypair-587915606"}}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:48 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '2304', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-cb027484-691b-4fe0-805f-6a82a2c98f83', 'x-compute-request-id': 'req-cb027484-691b-4fe0-805f-6a82a2c98f83', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs'}
+        Body: b'{"keypair": {"private_key": "-----BEGIN RSA PRIVATE KEY-----\\nMIIEpQIBAAKCAQEA7SVdwlSZSi+Lp3uQcoHMv0eeopL7++rAcAghLiZmFxo0g+Wx\\nO3behg//D4DLpWnl2D+/ql2gUrlVBGnVfe9Yskn82dg8BDFf4YMtCB5+yE0DukbV\\nlQs4vZVtu2/0py1usUIvrHXu0WDmI6jGRqMVfj3/mlPchIY6/KaJKpBkPfIQSqR2\\n9wMxQawG4Z4X3mhh3r9APhKim2l1VQklkM1sKVXW65TOqqsnQcV8prUopeFDR9PV\\n5PSh2IC1zfGbJRtLqcR0vnEzQxc5RLS1FUFj3XzeQyd9Tz3o75S8ToaLClDME+bO\\n9az1qsZw+ch9jjDx2iSispudC4nUeKe0JmlYvQIDAQABAoIBAQCxxvNUvWr1DFOb\\nSKxuyxOcyaoIoju5DLEay11kZXDfHMwFnOmSdHg49ED3dEw2Qv8FcDTVGL8ZhMpR\\nNq3PbOCHN6QQA2RqmEESo+3cSlAtBF8pA/UVeIYeyairfTBhK1PyGnX2yaow2H1u\\nehW52oRAUWYOYZPM3XvW71mgyQH81MsH8tMn6k6jUtVAozBbCex4pq46qfYvkdLA\\nC13A0RleEC9QmnJJ8RiHkfx3X/q2zZTa7kGKHNjL8eymm8ymoysHIq6cHISwX7Xq\\nBwABn3akRhsP+Cf59quSIjKC+9n3TLiLkit/2S/ojM2fpSWdazamk3xrc3/tet2p\\nnRTsNk4BAoGBAP0HEN4+XvLEV2yd8QcS7Q5/+QFtLGKP6zzy5FPzjcKmQx14wTwU\\nHSVsIA74qQXOCMDnnFwR5aByqE6C2Bq/Va2aLEOQHv1iCU1e/Sb0wz70VyrgTm71\\nWPkxavtIP5mQp8pK25yDOR3QzR3KNOB4g2NfIcTjnsRF0uvOAaSgpPB9AoGBAO/u\\nigt8zhqMXwgGSsbgCqRx9uiNOOhiEsul3GxBZAAYxyRIrw/huhuXtaTSjQ7UgmZM\\nUQwgqgyeEzfnoCt7da1Y8PuxzRrkxdCVmn1rFLslYPBkZ5wXTxyHjnkJyYcr8dpW\\nzSc+ek4/5A3Zs2m3CZuaIOqXM+U91kgSRkZ/rL1BAoGAJV91zl3ICHOXtiNeBn11\\nJj8guGU3uRco18fIkd3XgnisUR4U7JrL80sVMSDpVkIoaNXM8oxyLlDBK1eIM+su\\n7IVpJFGVQjfIx/TPz4E3lYThmyOmch0rFyOFebgiLLyBDBAif+uh9BVzNoM3bDBg\\nt7zFcB9uw+7MSKgU9gwEUMECgYEA7i2ceB7i8tPaGrs0TAxoRCql8uEOVxHUmrkC\\nAa1AOiBewBQvRNLNz0phFUe2o7wt3qNv6Vwbsv7RETQsej3K6dRbFWDBvSrRfGim\\nvk4ofEd03e6uM/OnoyimNF2U40yqgBae/ZA2FauzFlTAl/cN4Ju2hWqoJ6+lIlKR\\n1LY1ooECgYEAikV7tp+KHiRpd7SnZjVDfaN5lLk4sEmPX7y+e3Ioh/Mj2VWnXoF8\\nZtudDWu+BHp5wvVV40YvANHKXBts7Sh1TFLdivDAQ66onKEpozb3a4nTGdrlBuv7\\nYJlyrnuuKj0nZxCKrU1OVBI1BxE4LI/qMt4W6mhgLQPEHDcuvy7Mp74=\\n-----END RSA PRIVATE KEY-----\\n", "name": "tempest-keypair-587915606", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDtJV3CVJlKL4une5Bygcy/R56ikvv76sBwCCEuJmYXGjSD5bE7dt6GD/8PgMulaeXYP7+qXaBSuVUEadV971iySfzZ2DwEMV/hgy0IHn7ITQO6RtWVCzi9lW27b/SnLW6xQi+sde7RYOYjqMZGoxV+Pf+aU9yEhjr8pokqkGQ98hBKpHb3AzFBrAbhnhfeaGHev0A+EqKbaXVVCSWQzWwpVdbrlM6qqydBxXymtSil4UNH09Xk9KHYgLXN8ZslG0upxHS+cTNDFzlEtLUVQWPdfN5DJ31PPejvlLxOhosKUMwT5s71rPWqxnD5yH2OMPHaJKKym50LidR4p7QmaVi9 Generated-by-Nova", "fingerprint": "a5:97:73:cc:f8:b1:0f:9b:44:ab:41:86:fe:63:4c:91", "user_id": "7c83eb60746a45ae828022a8bd71ec18"}}'
+2022-07-21 13:26:49,182 28654 DEBUG    [tempest.lib.common.validation_resources] Validation resource key tempest-keypair-587915606 created
+2022-07-21 13:26:49,232 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 404 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips 0.048s
+2022-07-21 13:26:49,232 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'app
+    lication/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"pool": null}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '73', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-35a93f27-0a12-4a14-aee7-50c70987296c', 'x-compute-request-id': 'req-35a93f27-0a12-4a14-aee7-50c70987296c', 'connection': 'close', 'content-type': 'application/json; charset=UTF-8', 'status': '404', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips'}
+        Body: b'{"itemNotFound": {"code": 404, "message": "Floating IP pool not found."}}'
+2022-07-21 13:26:49,233 28654 DEBUG    [tempest.lib.common.validation_resources] Error while provisioning validation resources Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}. Trying to cleanup what we provisioned so far: {'keypair': {'private_key': '-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIBAAKCAQEA7SVdwlSZSi+Lp3uQcoHMv0eeopL7++rAcAghLiZmFxo0g+Wx\nO3behg//D4DLpWnl2D+/ql2gUrlVBGnVfe9Yskn82dg8BDFf4YMtCB5+yE0DukbV\nlQs4vZVtu2/0py1usUIvrHXu0WDmI6jGRqMVfj3/mlPchIY6/KaJKpBkPfIQSqR2\n9wMxQawG4Z4X3mhh3r9APhKim2l1VQklkM1sKVXW65TOqqsnQcV8prUopeFDR9PV\n5PSh2IC1zfGbJRtLqcR0vnEzQxc5RLS1FUFj3XzeQyd9Tz3o75S8ToaLClDME+bO\n9az1qsZw+ch9jjDx2iSispudC4nUeKe0JmlYvQIDAQABAoIBAQCxxvNUvWr1DFOb\nSKxuyxOcyaoIoju5DLEay11kZXDfHMwFnOmSdHg49ED3dEw2Qv8FcDTVGL8ZhMpR\nNq3PbOCHN6QQA2RqmEESo+3cSlAtBF8pA/UVeIYeyairfTBhK1PyGnX2yaow2H1u\nehW52oRAUWYOYZPM3XvW71mgyQH81MsH8tMn6k6jUtVAozBbCex4pq46qfYvkdLA\nC13A0RleEC9QmnJJ8RiHkfx3X/q2zZTa7kGKHNjL8eymm8ymoysHIq6cHISwX7Xq\nBwABn3akRhsP+Cf59quSIjKC+9n3TLiLkit/2S/ojM2fpSWdazamk3xrc3/tet2p\nnRTsNk4BAoGBAP0HEN4+XvLEV2yd8QcS7Q5/+QFtLGKP6zzy5FPzjcKmQx14wTwU\nHSVsIA74qQXOCMDnnFwR5aByqE6C2Bq/Va2aLEOQHv1iCU1e/Sb0wz70VyrgTm71\nWPkxavtIP5mQp8pK25yDOR3QzR3KNOB4g2NfIcTjnsRF0uvOAaSgpPB9AoGBAO/u\nigt8zhqMXwgGSsbgCqRx9uiNOOhiEsul3GxBZAAYxyRIrw/huhuXtaTSjQ7UgmZM\nUQwgqgyeEzfnoCt7da1Y8PuxzRrkxdCVmn1rFLslYPBkZ5wXTxyHjnkJyYcr8dpW\nzSc+ek4/5A3Zs2m3CZuaIOqXM+U91kgSRkZ/rL1BAoGAJV91zl3ICHOXtiNeBn11\nJj8guGU3uRco18fIkd3XgnisUR4U7JrL80sVMSDpVkIoaNXM8oxyLlDBK1eIM+su\n7IVpJFGVQjfIx/TPz4E3lYThmyOmch0rFyOFebgiLLyBDBAif+uh9BVzNoM3bDBg\nt7zFcB9uw+7MSKgU9gwEUMECgYEA7i2ceB7i8tPaGrs0TAxoRCql8uEOVxHUmrkC\nAa1AOiBewBQvRNLNz0phFUe2o7wt3qNv6Vwbsv7RETQsej3K6dRbFWDBvSrRfGim\nvk4ofEd03e6uM/OnoyimNF2U40yqgBae/ZA2FauzFlTAl/cN4Ju2hWqoJ6+lIlKR\n1LY1ooECgYEAikV7tp+KHiRpd7SnZjVDfaN5lLk4sEmPX7y+e3Ioh/Mj2VWnXoF8\nZtudDWu+BHp5wvVV40YvANHKXBts7Sh1TFLdivDAQ66onKEpozb3a4nTGdrlBuv7\nYJlyrnuuKj0nZxCKrU1OVBI1BxE4LI/qMt4W6mhgLQPEHDcuvy7Mp74=\n-----END RSA PRIVATE KEY-----\n', 'name': 'tempest-keypair-587915606', 'public_key': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDtJV3CVJlKL4une5Bygcy/R56ikvv76sBwCCEuJmYXGjSD5bE7dt6GD/8PgMulaeXYP7+qXaBSuVUEadV971iySfzZ2DwEMV/hgy0IHn7ITQO6RtWVCzi9lW27b/SnLW6xQi+sde7RYOYjqMZGoxV+Pf+aU9yEhjr8pokqkGQ98hBKpHb3AzFBrAbhnhfeaGHev0A+EqKbaXVVCSWQzWwpVdbrlM6qqydBxXymtSil4UNH09Xk9KHYgLXN8ZslG0upxHS+cTNDFzlEtLUVQWPdfN5DJ31PPejvlLxOhosKUMwT5s71rPWqxnD5yH2OMPHaJKKym50LidR4p7QmaVi9 Generated-by-Nova', 'fingerprint': 'a5:97:73:cc:f8:b1:0f:9b:44:ab:41:86:fe:63:4c:91', 'user_id': '7c83eb60746a45ae828022a8bd71ec18'}}
+2022-07-21 13:26:49,269 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 202 DELETE http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-587915606 0.035s
+2022-07-21 13:26:49,269 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '0', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-24e80020-3bf1-4fd0-b006-516cf8164c6d', 'x-compute-request-id': 're
+    q-24e80020-3bf1-4fd0-b006-516cf8164c6d', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-587915606'}
+        Body: b''
+
+
+tempest.api.compute.volumes.test_attach_volume_negative.AttachVolumeNegativeTest.test_delete_attached_volume[id-a313b5cd-fbd0-49cc-94de-870e99f763c7,negative]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+
+Captured traceback-1:
+~~~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 197, in setUp
+    self._setUp()
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 445, in _setUp
+    floating_network_name=self._floating_network_name)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 245, in create_validation_resources
+    LOG.exception(msg, prov_exc, cleanup_exc)
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 227, in __exit__
+    self.force_reraise()
+
+      File "/usr/local/lib/python3.6/site-packages/oslo_utils/excutils.py", line 200, in force_reraise
+    raise self.value
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/validation_resources.py", line 217, in create_validation_resources
+    pool=floating_network_name))
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/floating_ips_client.py", line 66, in create_floating_ip
+    resp, body = self.post(url, post_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 299, in post
+    return self.request('POST', url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/services/compute/base_compute_client.py", line 48, in request
+    method, url, extra_headers, headers, body, chunked)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 703, in request
+    self._error_checker(resp, resp_body)
+
+      File "/usr/local/lib/python3.6/site-packages/tempest/lib/common/rest_client.py", line 809, in _error_checker
+    raise exceptions.NotFound(resp_body, resp=resp)
+
+    tempest.lib.exceptions.NotFound: Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}
+
+    
+During handling of the above exception, another exception occurred:
+
+
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.6/site-packages/fixtures/fixture.py", line 208, in setUp
+    raise SetupError(details)
+
+    fixtures.fixture.SetupError: {}
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2022-07-21 13:26:49,276 28654 DEBUG    [tempest.lib.common.validation_resources] Requested setup of ValidationResources keypair True, floating IP True, security group False
+2022-07-21 13:26:49,276 28654 DEBUG    [tempest.lib.common.validation_resources] Requested validation resources keypair True, floating IP True, security group False
+2022-07-21 13:26:49,424 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 200 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs 0.146s
+2022-07-21 13:26:49,425 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"keypair": {"name": "tempest-keypair-866217224"}}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '2300', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-db1d7b4f-ae83-47e7-9e01-a19e948d39b8', 'x-compute-request-id': 'req-db1d7b4f-ae83-47e7-9e01-a19e948d39b8', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs'}
+        Body: b'{"keypair": {"private_key": "-----BEGIN RSA PRIVATE KEY-----\\nMIIEogIBAAKCAQEA88kjx+/VBbSvwt1FpS08w7Pp7tBvmHiQOPiEF5y93kDvSECN\\nFgtw+n7tQoERnQ0Ihyz4XL68MG1c9WX07c6iF9YxpFsFiOebo5v5J3Cu/SidPbSn\\nXQqATWOsXIG1l+ry+vZiPI7pvteOXd9oJNdkjD79DCsG8GWGWOmbTYR3MqlLDY/e\\n9vgscWd7Qj5f3xJHswCNLe4Sdc68yWxJax4DQlrfcZFngoHBksV/vYNBpwzfHA/0\\nJ+os3sPT3A7zIwqTLMB2x2u8hk04SEe+Ot9/9RMMCqp1upnyJKlZzkIH/lXyfm0x\\nWVtaOcsTbZ/G8gLV+CamON/Nr+VqgxgC6tl/6wIDAQABAoIBACHOQqf3GhMwey8K\\ngB3nqAV7bXUwckkybs13qNmdYrbvSj86tFXaQFB8SWpve4HLzOLx2X8C9BXDFKDz\\nAoP3o4KqsTeZZ6sUcwC9IE/X0GxKtYNZCdxdGG2i5MPvOL9YVVl30SeUqdVNDvD1\\nifuR4t+P3IdTcCLl8TtjKaYWOHFNw08XEpK1sKniwHiNPJZdihJcZQSlATaaNKpx\\nMa0ITQAHBHphOaRLmm+z+IuBiTVcxqu/YhbdSKsOxeTD+eKUHjx07D83Ujom+Vzc\\nuC6P3zmjd4YABBq8kBnqnKf3A6rcNrIyjvUGbufks7sdpB7MhwbFQP6hiAYZW0GH\\nRAfPMAECgYEA/f3etb127MJsT9rbtr8sDdGEzqGy/SKRmLLrSB0ba7ddnjvUaMGP\\nUGCgLudRW6/Dh45Awkh3q0rABb3bGwI0v9nXt2/BSfWmxG7LfK1GxUBUuxEELZZT\\nAXOzknwHyg1oT9gV3quTWVna2oimrH8eQd8sgk3WfRK6s7185PjJ6pECgYEA9bac\\nYbzgs/onC/yiEK9jgnJtkIvyzjzVKV2M1S+IKyOqMr9+O+TbCpFKCoqksfDO3Ljo\\nC2MSEZGNPj5gDSBw2EPyavG0xedgfo7ypjFtEsayHVQHWWqRc6nl0Z1kR83G1LkC\\njtwNTRdF+rPOwjYHkcBLDF8/NkIV8YHt49SsqLsCgYBxFKglDfd2rZD/dJdBo5d/\\nh3qzbHZ+EPf1niL2dk8RBBBgNI77HMIrrPlkKISmZ3iMT58xYIY28w7O/5ofSjol\\n+Fz8RHsv7HiVGCbsmVDa3StcJdVQXo8SJGscmq/1G0cH1VLXUlhF/aVcil56ihX0\\nieINGY6XHNGW2JRUdRegoQKBgFgVnL4U/eDHPpQ3fsnIdj3fU5PL98EjYa8wkDok\\njgYZBPyoVVKXWkbRit94kE4R67aIuvbKD0IpEZ9MsRZDmPCOeysHdyyzI457JFWb\\nxmRCwrts0i2l3HrAX1jjuX1cMXk00cvw6vvF6hpTtz08LT581uqagoiq7D7luyg/\\np53dAoGAKbH4GgHJgSXEUaBUv24yOra/j3u9XMjhVhSYF+cKkZ5bwl+a75QEnVOT\\nG0WGyKskhbIzP3xOVIM32x4G+UGR5KIVIm8hmhklI85TgnlllAlmxAF59lbjk3NB\\nhP1rhMeqGY9DBBpdWaRaEp2gD0GT1BKrmxHbqKw6Vp1fRNIsa0w=\\n-----END RSA PRIVATE KEY-----\\n", "name": "tempest-keypair-866217224", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzySPH79UFtK/C3UWlLTzDs+nu0G+YeJA4+IQXnL3eQO9IQI0WC3D6fu1CgRGdDQiHLPhcvrwwbVz1ZfTtzqIX1jGkWwWI55ujm/kncK79KJ09tKddCoBNY6xcgbWX6vL69mI8jum+145d32gk12SMPv0MKwbwZYZY6ZtNhHcyqUsNj972+CxxZ3tCPl/fEkezAI0t7hJ1zrzJbElrHgNCWt9xkWeCgcGSxX+9g0GnDN8cD/Qn6izew9PcDvMjCpMswHbHa7yGTThIR74633/1EwwKqnW6mfIkqVnOQgf+VfJ+bTFZW1o5yxNtn8byAtX4JqY4382v5WqDGALq2X/r Generated-by-Nova", "fingerprint": "5d:33:0e:0d:b6:8f:c9:e2:ce:61:b6:80:b0:0d:66:17", "user_id": "7c83eb60746a45ae828022a8bd71ec18"}}'
+2022-07-21 13:26:49,428 28654 DEBUG    [tempest.lib.common.validation_resources] Validation resource key tempest-keypair-866217224 created
+2022-07-21 13:26:49,474 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 404 POST http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips 0.044s
+2022-07-21 13:26:49,474 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'applica
+    tion/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"pool": null}
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '73', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-7b79b4db-f653-4c97-963e-a5aacd3965fd', 'x-compute-request-id': 'req-7b79b4db-f653-4c97-963e-a5aacd3965fd', 'connection': 'close', 'content-type': 'application/json; charset=UTF-8', 'status': '404', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-floating-ips'}
+        Body: b'{"itemNotFound": {"code": 404, "message": "Floating IP pool not found."}}'
+2022-07-21 13:26:49,475 28654 DEBUG    [tempest.lib.common.validation_resources] Error while provisioning validation resources Object not found
+Details: {'code': 404, 'message': 'Floating IP pool not found.'}. Trying to cleanup what we provisioned so far: {'keypair': {'private_key': '-----BEGIN RSA PRIVATE KEY-----\nMIIEogIBAAKCAQEA88kjx+/VBbSvwt1FpS08w7Pp7tBvmHiQOPiEF5y93kDvSECN\nFgtw+n7tQoERnQ0Ihyz4XL68MG1c9WX07c6iF9YxpFsFiOebo5v5J3Cu/SidPbSn\nXQqATWOsXIG1l+ry+vZiPI7pvteOXd9oJNdkjD79DCsG8GWGWOmbTYR3MqlLDY/e\n9vgscWd7Qj5f3xJHswCNLe4Sdc68yWxJax4DQlrfcZFngoHBksV/vYNBpwzfHA/0\nJ+os3sPT3A7zIwqTLMB2x2u8hk04SEe+Ot9/9RMMCqp1upnyJKlZzkIH/lXyfm0x\nWVtaOcsTbZ/G8gLV+CamON/Nr+VqgxgC6tl/6wIDAQABAoIBACHOQqf3GhMwey8K\ngB3nqAV7bXUwckkybs13qNmdYrbvSj86tFXaQFB8SWpve4HLzOLx2X8C9BXDFKDz\nAoP3o4KqsTeZZ6sUcwC9IE/X0GxKtYNZCdxdGG2i5MPvOL9YVVl30SeUqdVNDvD1\nifuR4t+P3IdTcCLl8TtjKaYWOHFNw08XEpK1sKniwHiNPJZdihJcZQSlATaaNKpx\nMa0ITQAHBHphOaRLmm+z+IuBiTVcxqu/YhbdSKsOxeTD+eKUHjx07D83Ujom+Vzc\nuC6P3zmjd4YABBq8kBnqnKf3A6rcNrIyjvUGbufks7sdpB7MhwbFQP6hiAYZW0GH\nRAfPMAECgYEA/f3etb127MJsT9rbtr8sDdGEzqGy/SKRmLLrSB0ba7ddnjvUaMGP\nUGCgLudRW6/Dh45Awkh3q0rABb3bGwI0v9nXt2/BSfWmxG7LfK1GxUBUuxEELZZT\nAXOzknwHyg1oT9gV3quTWVna2oimrH8eQd8sgk3WfRK6s7185PjJ6pECgYEA9bac\nYbzgs/onC/yiEK9jgnJtkIvyzjzVKV2M1S+IKyOqMr9+O+TbCpFKCoqksfDO3Ljo\nC2MSEZGNPj5gDSBw2EPyavG0xedgfo7ypjFtEsayHVQHWWqRc6nl0Z1kR83G1LkC\njtwNTRdF+rPOwjYHkcBLDF8/NkIV8YHt49SsqLsCgYBxFKglDfd2rZD/dJdBo5d/\nh3qzbHZ+EPf1niL2dk8RBBBgNI77HMIrrPlkKISmZ3iMT58xYIY28w7O/5ofSjol\n+Fz8RHsv7HiVGCbsmVDa3StcJdVQXo8SJGscmq/1G0cH1VLXUlhF/aVcil56ihX0\nieINGY6XHNGW2JRUdRegoQKBgFgVnL4U/eDHPpQ3fsnIdj3fU5PL98EjYa8wkDok\njgYZBPyoVVKXWkbRit94kE4R67aIuvbKD0IpEZ9MsRZDmPCOeysHdyyzI457JFWb\nxmRCwrts0i2l3HrAX1jjuX1cMXk00cvw6vvF6hpTtz08LT581uqagoiq7D7luyg/\np53dAoGAKbH4GgHJgSXEUaBUv24yOra/j3u9XMjhVhSYF+cKkZ5bwl+a75QEnVOT\nG0WGyKskhbIzP3xOVIM32x4G+UGR5KIVIm8hmhklI85TgnlllAlmxAF59lbjk3NB\nhP1rhMeqGY9DBBpdWaRaEp2gD0GT1BKrmxHbqKw6Vp1fRNIsa0w=\n-----END RSA PRIVATE KEY-----\n', 'name': 'tempest-keypair-866217224', 'public_key': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzySPH79UFtK/C3UWlLTzDs+nu0G+YeJA4+IQXnL3eQO9IQI0WC3D6fu1CgRGdDQiHLPhcvrwwbVz1ZfTtzqIX1jGkWwWI55ujm/kncK79KJ09tKddCoBNY6xcgbWX6vL69mI8jum+145d32gk12SMPv0MKwbwZYZY6ZtNhHcyqUsNj972+CxxZ3tCPl/fEkezAI0t7hJ1zrzJbElrHgNCWt9xkWeCgcGSxX+9g0GnDN8cD/Qn6izew9PcDvMjCpMswHbHa7yGTThIR74633/1EwwKqnW6mfIkqVnOQgf+VfJ+bTFZW1o5yxNtn8byAtX4JqY4382v5WqDGALq2X/r Generated-by-Nova', 'fingerprint': '5d:33:0e:0d:b6:8f:c9:e2:ce:61:b6:80:b0:0d:66:17', 'user_id': '7c83eb60746a45ae828022a8bd71ec18'}}
+2022-07-21 13:26:49,503 28654 INFO     [tempest.lib.common.rest_client] Request (ValidationResourcesFixture:setUp): 202 DELETE http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-866217224 0.027s
+2022-07-21 13:26:49,504 28654 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Thu, 21 Jul 2022 10:26:49 GMT', 'server': 'Apache/2.4.41 (Ubuntu)', 'content-length': '0', 'openstack-api-version': 'compute 2.1', 'x-openstack-nova-api-version': '2.1', 'vary': 'OpenStack-API-Version,X-OpenStack-Nova-API-Version', 'x-openstack-request-id': 'req-d1703a94-6271-4e3d-aad4-133d0a0364a8', 'x-compute-request-id': 'req-d1703a
+    94-6271-4e3d-aad4-133d0a0364a8', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8774/v2.1/os-keypairs/tempest-keypair-866217224'}
+        Body: b''
+
+
+
+======
+Totals
+======
+Ran: 222 tests in 305.9625 sec.
+ - Passed: 213
+ - Skipped: 6
+ - Expected Fail: 0
+ - Unexpected Success: 0
+ - Failed: 3
+Sum of execute time for each test: 548.3161 sec.
+
+==============
+Worker Balance
+==============
+ - Worker 0 (63 tests) => 0:04:58.445322
+ - Worker 1 (56 tests) => 0:05:05.845519
+ - Worker 2 (103 tests) => 0:04:58.911748
