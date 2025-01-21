@@ -1,0 +1,719 @@
+Build Started 21_01_2025_04_57_35
+2025-01-21 04:57:43.070 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:57:45.166 7 INFO oslo_service.service [None req-b80c094d-6a5b-4cc3-8d90-4f59ebbfc8a8 - - - - - -] Caught SIGTERM, stopping children
+2025-01-21 04:57:45.176 7 INFO oslo_service.service [None req-b80c094d-6a5b-4cc3-8d90-4f59ebbfc8a8 - - - - - -] Waiting on 1 children to exit
+2025-01-21 04:57:47.663 25 WARNING amqp [None req-b80c094d-6a5b-4cc3-8d90-4f59ebbfc8a8 - - - - - -] Received method (60, 30) during closing channel 1. This method will be ignored
+2025-01-21 04:57:47.671 25 WARNING amqp [None req-b80c094d-6a5b-4cc3-8d90-4f59ebbfc8a8 - - - - - -] Received method (60, 30) during closing channel 1. This method will be ignored
+2025-01-21 04:57:47.678 25 WARNING amqp [None req-b80c094d-6a5b-4cc3-8d90-4f59ebbfc8a8 - - - - - -] Received method (60, 30) during closing channel 1. This method will be ignored
+2025-01-21 04:57:47.687 7 INFO oslo_service.service [None req-b80c094d-6a5b-4cc3-8d90-4f59ebbfc8a8 - - - - - -] Child 25 exited with status 0
+2025-01-21 04:58:02.757 7 INFO cinder.rpc [None req-800711ed-42e4-41f4-9ed2-e559c9692c61 - - - - - -] Automatically selected cinder-scheduler objects version 1.39 as minimum service version.
+2025-01-21 04:58:02.762 7 INFO cinder.rpc [None req-800711ed-42e4-41f4-9ed2-e559c9692c61 - - - - - -] Automatically selected cinder-scheduler RPC version 3.12 as minimum service version.
+2025-01-21 04:58:02.800 7 INFO cinder.volume.manager [None req-800711ed-42e4-41f4-9ed2-e559c9692c61 - - - - - -] Determined volume DB was empty at startup.
+2025-01-21 04:58:02.818 7 INFO cinder.volume.manager [None req-800711ed-42e4-41f4-9ed2-e559c9692c61 - - - - - -] Image-volume cache disabled for host rack13-server67@LIGHTOSyilgqu.
+2025-01-21 04:58:02.833 7 INFO oslo_service.service [None req-800711ed-42e4-41f4-9ed2-e559c9692c61 - - - - - -] Starting 1 workers
+2025-01-21 04:58:02.844 25 INFO cinder.service [-] Starting cinder-volume node (version 25.1.0)
+2025-01-21 04:58:02.848 7 WARNING oslo_config.cfg [None req-800711ed-42e4-41f4-9ed2-e559c9692c61 - - - - - -] Deprecated: Option "heartbeat_in_pthread" from group "oslo_messaging_rabbit" is deprecated for removal (The option is related to Eventlet which will be removed. In addition this has never worked as expected with services using eventlet for core service framework.).  Its value may be silently ignored in the future.
+2025-01-21 04:58:02.862 25 INFO cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Starting volume driver LightOSVolumeDriver (2.3.12)
+2025-01-21 04:58:02.863 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094211ba0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos ConnectionRefusedError: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5094211ba0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094211ba0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094211ba0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:02.865 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.867 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210ee0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos ConnectionRefusedError: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5094210ee0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210ee0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210ee0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:02.868 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:02.869 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210400>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos OSError: [Errno 113] EHOSTUNREACH
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5094210400>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210400>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210400>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:05.922 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Failed to initialize driver.: cinder.exception.VolumeDriverException: Volume driver reported an error: Could not get a response from any API server
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager Traceback (most recent call last):
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/manager.py", line 523, in _init_host
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager     self.driver.do_setup(ctxt)
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 922, in do_setup
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager     self.get_cluster_info()
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 873, in get_cluster_info
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager     status_code, cluster_info = self.cluster.send_cmd(
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 315, in send_cmd
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager     raise exception.VolumeDriverException(
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager cinder.exception.VolumeDriverException: Volume driver reported an error: Could not get a response from any API server
+2025-01-21 04:58:05.924 25 ERROR cinder.volume.manager 
+2025-01-21 04:58:06.929 25 INFO cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Starting volume driver LightOSVolumeDriver (2.3.12)
+2025-01-21 04:58:06.930 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210790>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos ConnectionRefusedError: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5094210790>: Failed to establish a new connection: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210790>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210790>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:06.934 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.937 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f50942111e0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos ConnectionRefusedError: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f50942111e0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f50942111e0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f50942111e0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:06.939 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:06.940 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094212260>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos OSError: [Errno 113] EHOSTUNREACH
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5094212260>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094212260>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094212260>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:08.993 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Failed to initialize driver.: cinder.exception.VolumeDriverException: Volume driver reported an error: Could not get a response from any API server
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager Traceback (most recent call last):
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/manager.py", line 523, in _init_host
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager     self.driver.do_setup(ctxt)
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 922, in do_setup
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager     self.get_cluster_info()
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 873, in get_cluster_info
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager     status_code, cluster_info = self.cluster.send_cmd(
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 315, in send_cmd
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager     raise exception.VolumeDriverException(
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager cinder.exception.VolumeDriverException: Volume driver reported an error: Could not get a response from any API server
+2025-01-21 04:58:08.996 25 ERROR cinder.volume.manager 
+2025-01-21 04:58:11.000 25 INFO cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Starting volume driver LightOSVolumeDriver (2.3.12)
+2025-01-21 04:58:11.000 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa8880>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos ConnectionRefusedError: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5093fa8880>: Failed to establish a new connection: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa8880>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa8880>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:11.008 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.010 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa9360>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos ConnectionRefusedError: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5093fa9360>: Failed to establish a new connection: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa9360>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa9360>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:11.013 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:11.015 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094212110>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos OSError: [Errno 113] EHOSTUNREACH
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5094212110>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094212110>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094212110>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:12.065 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Failed to initialize driver.: cinder.exception.VolumeDriverException: Volume driver reported an error: Could not get a response from any API server
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager Traceback (most recent call last):
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/manager.py", line 523, in _init_host
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager     self.driver.do_setup(ctxt)
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 922, in do_setup
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager     self.get_cluster_info()
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 873, in get_cluster_info
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager     status_code, cluster_info = self.cluster.send_cmd(
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 315, in send_cmd
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager     raise exception.VolumeDriverException(
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager cinder.exception.VolumeDriverException: Volume driver reported an error: Could not get a response from any API server
+2025-01-21 04:58:12.068 25 ERROR cinder.volume.manager 
+2025-01-21 04:58:16.073 25 INFO cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Starting volume driver LightOSVolumeDriver (2.3.12)
+2025-01-21 04:58:16.074 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210a30>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos ConnectionRefusedError: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5094210a30>: Failed to establish a new connection: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210a30>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210a30>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:16.081 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.084 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210610>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos ConnectionRefusedError: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5094210610>: Failed to establish a new connection: [Errno 111] ECONNREFUSED
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210610>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5094210610>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+2025-01-21 04:58:16.087 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:16.089 25 INFO cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Invoking get_cluster_info using GET url: /api/v2/clusterinfo             request.body: {} ssl_verify: False
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] REST server not responding at 'https://[LB_IP_ADDRESS]:443/api/v2/clusterinfo': requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa81f0>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     conn = connection.create_connection(
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     raise err
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     sock.connect(sa)
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 265, in connect
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     socket_checkerr(fd)
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/eventlet/greenio/base.py", line 50, in socket_checkerr
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     raise OSError(err, errno.errorcode[err])
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos OSError: [Errno 113] EHOSTUNREACH
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     httplib_response = self._make_request(
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     self._validate_conn(conn)
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1060, in _validate_conn
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     conn.connect()
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     self.sock = conn = self._new_conn()
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     raise NewConnectionError(
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5093fa81f0>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     resp = conn.urlopen(
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 801, in urlopen
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     retries = retries.increment(
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 594, in increment
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa81f0>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos During handling of the above exception, another exception occurred:
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos Traceback (most recent call last):
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 356, in __send_cmd
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     response = session.send(
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     r = adapter.send(request, **kwargs)
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos   File "/var/lib/kolla/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos     raise ConnectionError(e, request=request)
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos requests.exceptions.ConnectionError: HTTPSConnectionPool(host='[LB_IP_ADDRESS]', port=443): Max retries exceeded with url: /api/v2/clusterinfo (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5093fa81f0>: Failed to establish a new connection: [Errno 113] EHOSTUNREACH'))
+2025-01-21 04:58:19.170 25 ERROR cinder.volume.drivers.lightos 
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Failed to initialize driver.: cinder.exception.VolumeDriverException: Volume driver reported an error: Could not get a response from any API server
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager Traceback (most recent call last):
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/manager.py", line 523, in _init_host
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager     self.driver.do_setup(ctxt)
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 922, in do_setup
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager     self.get_cluster_info()
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 873, in get_cluster_info
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager     status_code, cluster_info = self.cluster.send_cmd(
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager   File "/var/lib/kolla/venv/lib/python3.10/site-packages/cinder/volume/drivers/lightos.py", line 315, in send_cmd
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager     raise exception.VolumeDriverException(
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager cinder.exception.VolumeDriverException: Volume driver reported an error: Could not get a response from any API server
+2025-01-21 04:58:19.172 25 ERROR cinder.volume.manager 
+2025-01-21 04:58:19.194 25 WARNING oslo_config.cfg [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Deprecated: Option "heartbeat_in_pthread" from group "oslo_messaging_rabbit" is deprecated for removal (The option is related to Eventlet which will be removed. In addition this has never worked as expected with services using eventlet for core service framework.).  Its value may be silently ignored in the future.
+2025-01-21 04:58:19.234 25 INFO cinder.service [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Starting cinder-volume cluster lightos_cinder_cluster@LIGHTOSyilgqu (version 25.1.0)
+2025-01-21 04:58:19.254 25 INFO cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Initializing RPC dependent components of volume driver LightOSVolumeDriver (2.3.12)
+2025-01-21 04:58:19.255 25 ERROR cinder.volume.volume_utils [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Volume driver LightOSVolumeDriver not initialized
+2025-01-21 04:58:19.255 25 ERROR cinder.volume.manager [None req-9d661dbe-cbc4-4a0d-9514-0fe63d956161 - - - - - -] Cannot complete RPC initialization because driver isn't initialized properly.: cinder.exception.DriverNotInitialized: Volume driver not ready.
+2025-01-21 04:58:29.256 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:58:39.259 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:58:49.260 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:58:59.262 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:59:09.263 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:59:19.265 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:59:29.267 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:59:39.260 25 WARNING cinder.volume.manager [None req-b5b7c9f9-f245-4d4c-a540-f40356f24c6d - - - - - -] Update driver status failed: (config name LIGHTOSyilgqu) is uninitialized.
+2025-01-21 04:59:39.268 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:59:49.270 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 04:59:59.271 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:00:09.272 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:00:19.273 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:00:29.275 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:00:39.262 25 WARNING cinder.volume.manager [None req-b5b7c9f9-f245-4d4c-a540-f40356f24c6d - - - - - -] Update driver status failed: (config name LIGHTOSyilgqu) is uninitialized.
+2025-01-21 05:00:39.277 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:00:49.278 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:00:59.280 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:01:09.282 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:01:19.284 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:01:29.285 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
+2025-01-21 05:01:39.264 25 WARNING cinder.volume.manager [None req-b5b7c9f9-f245-4d4c-a540-f40356f24c6d - - - - - -] Update driver status failed: (config name LIGHTOSyilgqu) is uninitialized.
+2025-01-21 05:01:39.286 25 ERROR cinder.service [-] Manager for service cinder-volume rack13-server67@LIGHTOSyilgqu is reporting problems, not sending heartbeat. Service will appear "down".
