@@ -1,0 +1,351 @@
+{2} setUpClass (cinder_tempest_plugin.api.volume.admin.test_consistencygroups.ConsistencyGroupsV2Test) ... SKIPPED: Cinder consistency group feature disabled
+{2} cinder_tempest_plugin.api.volume.test_multiple_volume_from_resource.CreateVolumesFromSnapshotTest.test_create_multiple_volume_from_snapshot [1.711562s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_multiple_volume_from_resource.py", line 31, in test_create_multiple_volume_from_snapshot
+    volume = self.create_volume()
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/base.py", line 97, in create_volume
+    waiters.wait_for_volume_resource_status(cls.volumes_client,
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/common/waiters.py", line 372, in wait_for_volume_resource_status
+    raise exceptions.VolumeResourceBuildErrorException(
+
+    tempest.exceptions.VolumeResourceBuildErrorException: volume 33d22d55-1abd-47a4-9b0b-27017ee5416a failed to build and is in ERROR status
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2025-01-21 16:13:47,950 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSnapshotTest:test_create_multiple_volume_from_snapshot): 202 POST http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes 0.560s
+2025-01-21 16:13:47,950 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"size": 1, "name": "tempest-CreateVolumesFromSnapshotTest-Volume-452489358"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:47 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '854', 'x-compute-request-id': 'req-232519e5-c7d2-40f4-a525-8e1fdc052567', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-232519e5-c7d2-40f4-a525-8e1fdc052567', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes'}
+        Body: b'{"volume": {"id": "33d22d55-1abd-47a4-9b0b-27017ee5416a", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.876464", "updated_at": null, "name": "tempest-CreateVolumesFromSnapshotTest-Volume-452489358", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}], "user_id": "e1414adf96904d0690e10850a447df81", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:48,009 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSnapshotTest:test_create_multiple_volume_from_snapshot): 200 GET http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a 0.043s
+2025-01-21 16:13:48,010 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:47 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1033', 'x-compute-request-id': 'req-d4694aa7-6710-452c-a96b-04b1c311fd19', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-d4694aa7-6710-452c-a96b-04b1c311fd19', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a'}
+        Body: b'{"volume": {"id": "33d22d55-1abd-47a4-9b0b-27017ee5416a", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.000000", "updated_at": null, "name": "tempest-CreateVolumesFromSnapshotTest-Volume-452489358", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}], "user_id": "e1414adf96904d0690e10850a447df81", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "b6a908242b0940f4a764dbe13cc28d95", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+2025-01-21 16:13:49,082 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSnaps
+    hotTest:test_create_multiple_volume_from_snapshot): 200 GET http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a 0.054s
+2025-01-21 16:13:49,082 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:49 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1054', 'x-compute-request-id': 'req-4044f60a-4656-40fb-bb97-5ad2435141b5', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-4044f60a-4656-40fb-bb97-5ad2435141b5', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a'}
+        Body: b'{"volume": {"id": "33d22d55-1abd-47a4-9b0b-27017ee5416a", "status": "error", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.000000", "updated_at": "2025-01-21T16:13:48.000000", "name": "tempest-CreateVolumesFromSnapshotTest-Volume-452489358", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}], "user_id": "e1414adf96904d0690e10850a447df81", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "b6a908242b0940f4a764dbe13cc28d95", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+
+{0} setUpClass (cinder_tempest_plugin.api.volume.test_volume_unicode.CinderUnicodeTest) [0.000000s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/test.py", line 185, in setUpClass
+    raise value.with_traceback(trace)
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/test.py", line 178, in setUpClass
+    cls.resource_setup()
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_volume_unicode.py", line 39, in resource_setup
+    cls.volume = cls.create_volume_with_args(name=cls.volume_name)
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_volume_unicode.py", line 54, in create_volume_with_args
+    waiters.wait_for_volume_resource_status(cls.volumes_client,
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/common/waiters.py", line 372, in wait_for_volume_resource_status
+    raise exceptions.VolumeResourceBuildErrorException(
+
+    tempest.exceptions.VolumeResourceBuildErrorException: volume cc1fede9-74dc-4f11-a5a7-ea9cdbf34688 failed to build and is in ERROR status
+
+{0} setUpClass (cinder_tempest_plugin.rbac.v3.test_capabilities.ProjectAdminTests) ... SKIPPED: Tempest is not configured to enforce_scope for cinder, skipping RBAC tests. To enable these tests set `tempest.conf [enforce_scope] cinder=True`.
+{0} setUpClass (cinder_tempest_plugin.scenario.test_encrypted_volume_transfer.TransferEncryptedVolumeTest) ... SKIPPED: Barbican is required
+{1} cinder_tempest_plugin.api.volume.test_multiple_volume_from_resource.CreateVolumesFromImageTest.test_create_from_image_multiple [3.346545s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_multiple_volume_from_resource.py", line 104, in test_create_from_image_multiple
+    self._wait_for_multiple_resources(
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/base.py", line 223, in _wait_for_multiple_resources
+    callback(resource_id=r, **kwargs)
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/common/waiters.py", line 372, in wait_for_volume_resource_status
+    raise exceptions.VolumeResourceBuildErrorException(
+
+    tempest.exceptions.VolumeResourceBuildErrorException: volume 5f1432c8-7c73-4065-b0e8-8bff774abf11 failed to build and is in ERROR status
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2025-01-21 16:13:47,890 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes 0.570s
+2025-01-21 16:13:47,890 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-378180991"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:47 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '851', 'x-compute-request-id': 'req-e1d8d7c1-b282-4144-80b8-8d6a6c8d6079', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-e1d8d7c1-b282-4144-80b8-8d6a6c8d6079', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "5f1432c8-7c73-4065-b0e8-8bff774abf11", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.825230", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-378180991", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:48,333 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes 0.427s
+2025-01-21 16:13:48,333 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-1286420039"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:47 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '852', 'x-compute-request-id': 'req-fd51d585-260c-4ef4-a140-116bea6d59b9', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-fd51d585-260c-4ef4-a140-116bea6d59b9', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "96f36f4a-29f9-4ea4-a951-a9d335caaa7b", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:48.264935", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-1286420039", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/96f36f4a-29f9-4ea4-a951-a9d335caaa7b"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/96f36f4a-29f9-4ea4-a951-a9d335caaa7b"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:48,750 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d
+    01d633762fb/volumes 0.402s
+2025-01-21 16:13:48,751 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-620905861"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:48 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '851', 'x-compute-request-id': 'req-d504b7c7-14b7-46aa-91e8-78dcf06871cb', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-d504b7c7-14b7-46aa-91e8-78dcf06871cb', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "60dd5be3-f728-4db1-9663-0cef28a7f655", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:48.688399", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-620905861", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/60dd5be3-f728-4db1-9663-0cef28a7f655"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/60dd5be3-f728-4db1-9663-0cef28a7f655"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:49,167 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes 0.402s
+2025-01-21 16:13:49,168 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-1307716916"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:48 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '852', 'x-compute-request-id': 'req-4996c9da-0ad8-4c40-b2be-07314945f60d', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-4996c9da-0ad8-4c40-b2be-07314945f60d', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "c84af012-1524-4c1b-88ee-312ceadb1b0c", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:49.080791", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-1307716916", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/c84af012-1524-4c1b-88ee-312ceadb1b0c"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/c84af012-1524-4c1b-88ee-312ceadb1b0c"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:49,528 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes 0.345s
+2025-01-21 16:13:49,528 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': 
+    '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-91522093"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:49 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '850', 'x-compute-request-id': 'req-70763945-c303-495b-90df-997b9ee09e68', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-70763945-c303-495b-90df-997b9ee09e68', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "5b785989-f4e3-4566-b783-7e32b17414ff", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:49.468945", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-91522093", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5b785989-f4e3-4566-b783-7e32b17414ff"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5b785989-f4e3-4566-b783-7e32b17414ff"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:49,582 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 200 GET http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11 0.039s
+2025-01-21 16:13:49,583 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:49 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1051', 'x-compute-request-id': 'req-fbe1132a-15aa-48e2-9173-f5dc7065f0e2', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-fbe1132a-15aa-48e2-9173-f5dc7065f0e2', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11'}
+        Body: b'{"volume": {"id": "5f1432c8-7c73-4065-b0e8-8bff774abf11", "status": "error", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.000000", "updated_at": "2025-01-21T16:13:47.000000", "name": "tempest-CreateVolumesFromImageTest-Volume-378180991", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "cbc8d64dcdba4aadaa39d01d633762fb", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+2025-01-21 16:13:50,647 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 200 GET http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11 0.045s
+2025-01-21 16:13:50,647 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:50 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1051', 'x-compute-request-id': 'req-e1291b42-ee7b-4993-a919-ac84e75fdf9f', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-e1291b42-ee7b-4993-a919-ac84e75fdf9f', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11'}
+        Body: b'{"volume": {"id": "5f1432c8-7c73-4065-b0e8-8bff774abf11", "status": "error", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.000000", "updated_at": "2025-01-21T16:13:47.000000", "name": "tempest-CreateVolumesFromImageTest-Volume-378180991", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "cbc8d64dcdba4aadaa39d01d633762fb", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+
+{1} setUpClass (cinder_tempest_plugin.api.volume.test_volume_revert.VolumeRevertTests) ... SKIPPED: Cinder volume revert feature disabled
+{1} setUpClass (cinder_tempest_plugin.rbac.v3.test_capabilities.ProjectMemberTests) ... SKIPPED: Tempest is not configured to enforce_scope for cinder, skipping RBAC tests. To enable these tests set `tempest.conf [enforce_scope] cinder=True`.
+{2} cinder_tempest_plugin.api.volume.test_multiple_volume_from_resource.CreateVolumesFromSourceVolumeTest.test_create_multiple_volume_from_source_volume [1.740204s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_multiple_volume_from_resource.py", line 51, in test_create_multiple_volume_from_source_volume
+    volume = self.create_volume()
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/base.py", line 97, in create_volume
+    waiters.wait_for_volume_resource_status(cls.volumes_client,
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/common/waiters.py", line 372, in wait_for_volume_resource_status
+    raise exceptions.VolumeResourceBuildErrorException(
+
+    tempest.exceptions.VolumeResourceBuildErrorException: volume 2aefa1b9-962c-4347-af15-14a5cd37c6b3 failed to build and is in ERROR status
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2025-01-21 16:13:53,081 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSourceVolumeTest:test_create_multiple_volume_from_source_volume): 202 POST http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes 0.575s
+2025-01-21 16:13:53,081 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"size": 1, "name": "tempest-CreateVolumesFromSourceVolumeTest-Volume-1376840068"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:52 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '859', 'x-compute-request-id': 'req-28e0fa21-ef4c-481c-8e9e-bc60922e3b2a', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-28e0fa21-ef4c-481c-8e9e-bc60922e3b2a', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes'}
+        Body: b'{"volume": {"id": "2aefa1b9-962c-4347-af15-14a5cd37c6b3", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:53.019982", "updated_at": null, "name": "tempest-CreateVolumesFromSourceVolumeTest-Volume-1376840068", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}], "user_id": "7ece4cfe240c43289a3a8a924f78a1e4", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:53,140 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSourceVolumeTest:test_create_multiple_volume_from_source_volume): 200 GET http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3 0.043s
+2025-01-21 16:13:53,140 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:53 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1038', 'x-compute-request-id': 'req-7ea8a4cf-5974-4173-847f-ecbc25ffb651', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-7ea8a4cf-5974-4173-847f-ecbc25ffb651', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3'}
+        Body: b'{"volume": {"id": "2aefa1b9-962c-4347-af15-14a5cd37c6b3", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:53.000000", "updated_at": null, "name": "tempest-CreateVolumesFromSourceVolumeTest-Volume-1376840068", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}], "user_id": "7ece4cfe240c43289a3a8a924f78a1e4", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "1edc9fc3f10c40d88712c77ea786355c", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+2025-01-21 16:13:54,228 148904 INFO     [tempest.lib.common.rest_client
+    ] Request (CreateVolumesFromSourceVolumeTest:test_create_multiple_volume_from_source_volume): 200 GET http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3 0.070s
+2025-01-21 16:13:54,228 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:54 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1059', 'x-compute-request-id': 'req-5b77e68a-8c7b-43c2-af81-4a6a87a7fd4e', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-5b77e68a-8c7b-43c2-af81-4a6a87a7fd4e', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3'}
+        Body: b'{"volume": {"id": "2aefa1b9-962c-4347-af15-14a5cd37c6b3", "status": "error", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:53.000000", "updated_at": "2025-01-21T16:13:53.000000", "name": "tempest-CreateVolumesFromSourceVolumeTest-Volume-1376840068", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}], "user_id": "7ece4cfe240c43289a3a8a924f78a1e4", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "1edc9fc3f10c40d88712c77ea786355c", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+
+{2} setUpClass (cinder_tempest_plugin.rbac.v3.test_capabilities.ProjectReaderTests) ... SKIPPED: Tempest is not configured to enforce_scope for cinder, skipping RBAC tests. To enable these tests set `tempest.conf [enforce_scope] cinder=True`.
+
+==============================
+Failed 4 tests - output below:
+==============================
+
+cinder_tempest_plugin.api.volume.test_multiple_volume_from_resource.CreateVolumesFromSnapshotTest.test_create_multiple_volume_from_snapshot[id-3b879ad1-d861-4ad3-b2c8-c89162e867c3]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_multiple_volume_from_resource.py", line 31, in test_create_multiple_volume_from_snapshot
+    volume = self.create_volume()
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/base.py", line 97, in create_volume
+    waiters.wait_for_volume_resource_status(cls.volumes_client,
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/common/waiters.py", line 372, in wait_for_volume_resource_status
+    raise exceptions.VolumeResourceBuildErrorException(
+
+    tempest.exceptions.VolumeResourceBuildErrorException: volume 33d22d55-1abd-47a4-9b0b-27017ee5416a failed to build and is in ERROR status
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2025-01-21 16:13:47,950 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSnapshotTest:test_create_multiple_volume_from_snapshot): 202 POST http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes 0.560s
+2025-01-21 16:13:47,950 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"size": 1, "name": "tempest-CreateVolumesFromSnapshotTest-Volume-452489358"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:47 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '854', 'x-compute-request-id': 'req-232519e5-c7d2-40f4-a525-8e1fdc052567', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-232519e5-c7d2-40f4-a525-8e1fdc052567', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes'}
+        Body: b'{"volume": {"id": "33d22d55-1abd-47a4-9b0b-27017ee5416a", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.876464", "updated_at": null, "name": "tempest-CreateVolumesFromSnapshotTest-Volume-452489358", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}], "user_id": "e1414adf96904d0690e10850a447df81", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:48,009 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSnapshotTest:test_create_multiple_volume_from_snapshot): 200 GET http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a 0.043s
+2025-01-21 16:13:48,010 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:47 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1033', 'x-compute-request-id': 'req-d4694aa7-6710-452c-a96b-04b1c311fd19', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-d4694aa7-6710-452c-a96b-04b1c311fd19', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a'}
+        Body: b'{"volume": {"id": "33d22d55-1abd-47a4-9b0b-27017ee5416a", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.000000", "updated_at": null, "name": "tempest-CreateVolumesFromSnapshotTest-Volume-452489358", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}], "user_id": "e1414adf96904d0690e10850a447df81", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "b6a908242b0940f4a764dbe13cc28d95", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+2025-01-21 16:13:49,082 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSnaps
+    hotTest:test_create_multiple_volume_from_snapshot): 200 GET http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a 0.054s
+2025-01-21 16:13:49,082 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:49 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1054', 'x-compute-request-id': 'req-4044f60a-4656-40fb-bb97-5ad2435141b5', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-4044f60a-4656-40fb-bb97-5ad2435141b5', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a'}
+        Body: b'{"volume": {"id": "33d22d55-1abd-47a4-9b0b-27017ee5416a", "status": "error", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.000000", "updated_at": "2025-01-21T16:13:48.000000", "name": "tempest-CreateVolumesFromSnapshotTest-Volume-452489358", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/b6a908242b0940f4a764dbe13cc28d95/volumes/33d22d55-1abd-47a4-9b0b-27017ee5416a"}], "user_id": "e1414adf96904d0690e10850a447df81", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "b6a908242b0940f4a764dbe13cc28d95", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+
+
+setUpClass (cinder_tempest_plugin.api.volume.test_volume_unicode.CinderUnicodeTest)
+-----------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/test.py", line 185, in setUpClass
+    raise value.with_traceback(trace)
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/test.py", line 178, in setUpClass
+    cls.resource_setup()
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_volume_unicode.py", line 39, in resource_setup
+    cls.volume = cls.create_volume_with_args(name=cls.volume_name)
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_volume_unicode.py", line 54, in create_volume_with_args
+    waiters.wait_for_volume_resource_status(cls.volumes_client,
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/common/waiters.py", line 372, in wait_for_volume_resource_status
+    raise exceptions.VolumeResourceBuildErrorException(
+
+    tempest.exceptions.VolumeResourceBuildErrorException: volume cc1fede9-74dc-4f11-a5a7-ea9cdbf34688 failed to build and is in ERROR status
+
+
+cinder_tempest_plugin.api.volume.test_multiple_volume_from_resource.CreateVolumesFromImageTest.test_create_from_image_multiple[id-8976a11b-1ddc-49b6-b66f-8c26adf3fa9e]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_multiple_volume_from_resource.py", line 104, in test_create_from_image_multiple
+    self._wait_for_multiple_resources(
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/base.py", line 223, in _wait_for_multiple_resources
+    callback(resource_id=r, **kwargs)
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/common/waiters.py", line 372, in wait_for_volume_resource_status
+    raise exceptions.VolumeResourceBuildErrorException(
+
+    tempest.exceptions.VolumeResourceBuildErrorException: volume 5f1432c8-7c73-4065-b0e8-8bff774abf11 failed to build and is in ERROR status
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2025-01-21 16:13:47,890 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes 0.570s
+2025-01-21 16:13:47,890 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-378180991"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:47 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '851', 'x-compute-request-id': 'req-e1d8d7c1-b282-4144-80b8-8d6a6c8d6079', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-e1d8d7c1-b282-4144-80b8-8d6a6c8d6079', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "5f1432c8-7c73-4065-b0e8-8bff774abf11", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.825230", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-378180991", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:48,333 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes 0.427s
+2025-01-21 16:13:48,333 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-1286420039"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:47 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '852', 'x-compute-request-id': 'req-fd51d585-260c-4ef4-a140-116bea6d59b9', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-fd51d585-260c-4ef4-a140-116bea6d59b9', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "96f36f4a-29f9-4ea4-a951-a9d335caaa7b", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:48.264935", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-1286420039", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/96f36f4a-29f9-4ea4-a951-a9d335caaa7b"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/96f36f4a-29f9-4ea4-a951-a9d335caaa7b"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:48,750 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d
+    01d633762fb/volumes 0.402s
+2025-01-21 16:13:48,751 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-620905861"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:48 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '851', 'x-compute-request-id': 'req-d504b7c7-14b7-46aa-91e8-78dcf06871cb', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-d504b7c7-14b7-46aa-91e8-78dcf06871cb', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "60dd5be3-f728-4db1-9663-0cef28a7f655", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:48.688399", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-620905861", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/60dd5be3-f728-4db1-9663-0cef28a7f655"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/60dd5be3-f728-4db1-9663-0cef28a7f655"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:49,167 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes 0.402s
+2025-01-21 16:13:49,168 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-1307716916"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:48 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '852', 'x-compute-request-id': 'req-4996c9da-0ad8-4c40-b2be-07314945f60d', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-4996c9da-0ad8-4c40-b2be-07314945f60d', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "c84af012-1524-4c1b-88ee-312ceadb1b0c", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:49.080791", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-1307716916", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/c84af012-1524-4c1b-88ee-312ceadb1b0c"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/c84af012-1524-4c1b-88ee-312ceadb1b0c"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:49,528 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 202 POST http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes 0.345s
+2025-01-21 16:13:49,528 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': 
+    '<omitted>'}
+        Body: {"volume": {"'imageRef": "4750b270-4234-4361-8332-29002e5eea4e", "size": 1, "name": "tempest-CreateVolumesFromImageTest-Volume-91522093"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:49 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '850', 'x-compute-request-id': 'req-70763945-c303-495b-90df-997b9ee09e68', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-70763945-c303-495b-90df-997b9ee09e68', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes'}
+        Body: b'{"volume": {"id": "5b785989-f4e3-4566-b783-7e32b17414ff", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:49.468945", "updated_at": null, "name": "tempest-CreateVolumesFromImageTest-Volume-91522093", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5b785989-f4e3-4566-b783-7e32b17414ff"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5b785989-f4e3-4566-b783-7e32b17414ff"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:49,582 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 200 GET http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11 0.039s
+2025-01-21 16:13:49,583 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:49 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1051', 'x-compute-request-id': 'req-fbe1132a-15aa-48e2-9173-f5dc7065f0e2', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-fbe1132a-15aa-48e2-9173-f5dc7065f0e2', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11'}
+        Body: b'{"volume": {"id": "5f1432c8-7c73-4065-b0e8-8bff774abf11", "status": "error", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.000000", "updated_at": "2025-01-21T16:13:47.000000", "name": "tempest-CreateVolumesFromImageTest-Volume-378180991", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "cbc8d64dcdba4aadaa39d01d633762fb", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+2025-01-21 16:13:50,647 148902 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromImageTest:test_create_from_image_multiple): 200 GET http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11 0.045s
+2025-01-21 16:13:50,647 148902 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:50 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1051', 'x-compute-request-id': 'req-e1291b42-ee7b-4993-a919-ac84e75fdf9f', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-e1291b42-ee7b-4993-a919-ac84e75fdf9f', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11'}
+        Body: b'{"volume": {"id": "5f1432c8-7c73-4065-b0e8-8bff774abf11", "status": "error", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:47.000000", "updated_at": "2025-01-21T16:13:47.000000", "name": "tempest-CreateVolumesFromImageTest-Volume-378180991", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/cbc8d64dcdba4aadaa39d01d633762fb/volumes/5f1432c8-7c73-4065-b0e8-8bff774abf11"}], "user_id": "2b4f6c40868f46e4ae59ef723262879c", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "cbc8d64dcdba4aadaa39d01d633762fb", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+
+
+cinder_tempest_plugin.api.volume.test_multiple_volume_from_resource.CreateVolumesFromSourceVolumeTest.test_create_multiple_volume_from_source_volume[id-b4a250d1-3ffd-4727-a2f5-9d858b298558]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/test_multiple_volume_from_resource.py", line 51, in test_create_multiple_volume_from_source_volume
+    volume = self.create_volume()
+
+      File "/root/tempest_plugins/cinder-tempest-plugin/cinder_tempest_plugin/api/volume/base.py", line 97, in create_volume
+    waiters.wait_for_volume_resource_status(cls.volumes_client,
+
+      File "/usr/local/lib/python3.10/dist-packages/tempest/common/waiters.py", line 372, in wait_for_volume_resource_status
+    raise exceptions.VolumeResourceBuildErrorException(
+
+    tempest.exceptions.VolumeResourceBuildErrorException: volume 2aefa1b9-962c-4347-af15-14a5cd37c6b3 failed to build and is in ERROR status
+
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+
+No tests were successful during the run
+    2025-01-21 16:13:53,081 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSourceVolumeTest:test_create_multiple_volume_from_source_volume): 202 POST http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes 0.575s
+2025-01-21 16:13:53,081 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: {"volume": {"size": 1, "name": "tempest-CreateVolumesFromSourceVolumeTest-Volume-1376840068"}}
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:52 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '859', 'x-compute-request-id': 'req-28e0fa21-ef4c-481c-8e9e-bc60922e3b2a', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-28e0fa21-ef4c-481c-8e9e-bc60922e3b2a', 'connection': 'close', 'content-type': 'application/json', 'status': '202', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes'}
+        Body: b'{"volume": {"id": "2aefa1b9-962c-4347-af15-14a5cd37c6b3", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:53.019982", "updated_at": null, "name": "tempest-CreateVolumesFromSourceVolumeTest-Volume-1376840068", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}], "user_id": "7ece4cfe240c43289a3a8a924f78a1e4", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null}}'
+2025-01-21 16:13:53,140 148904 INFO     [tempest.lib.common.rest_client] Request (CreateVolumesFromSourceVolumeTest:test_create_multiple_volume_from_source_volume): 200 GET http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3 0.043s
+2025-01-21 16:13:53,140 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:53 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1038', 'x-compute-request-id': 'req-7ea8a4cf-5974-4173-847f-ecbc25ffb651', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-7ea8a4cf-5974-4173-847f-ecbc25ffb651', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3'}
+        Body: b'{"volume": {"id": "2aefa1b9-962c-4347-af15-14a5cd37c6b3", "status": "creating", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:53.000000", "updated_at": null, "name": "tempest-CreateVolumesFromSourceVolumeTest-Volume-1376840068", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}], "user_id": "7ece4cfe240c43289a3a8a924f78a1e4", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "1edc9fc3f10c40d88712c77ea786355c", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+2025-01-21 16:13:54,228 148904 INFO     [tempest.lib.common.rest_client
+    ] Request (CreateVolumesFromSourceVolumeTest:test_create_multiple_volume_from_source_volume): 200 GET http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3 0.070s
+2025-01-21 16:13:54,228 148904 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+        Body: None
+    Response - Headers: {'date': 'Tue, 21 Jan 2025 16:13:54 GMT', 'server': 'Apache/2.4.52 (Ubuntu)', 'content-length': '1059', 'x-compute-request-id': 'req-5b77e68a-8c7b-43c2-af81-4a6a87a7fd4e', 'openstack-api-version': 'volume 3.0', 'vary': 'OpenStack-API-Version', 'x-openstack-request-id': 'req-5b77e68a-8c7b-43c2-af81-4a6a87a7fd4e', 'connection': 'close', 'content-type': 'application/json', 'status': '200', 'content-location': 'http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3'}
+        Body: b'{"volume": {"id": "2aefa1b9-962c-4347-af15-14a5cd37c6b3", "status": "error", "size": 1, "availability_zone": "nova", "created_at": "2025-01-21T16:13:53.000000", "updated_at": "2025-01-21T16:13:53.000000", "name": "tempest-CreateVolumesFromSourceVolumeTest-Volume-1376840068", "description": null, "volume_type": "__DEFAULT__", "snapshot_id": null, "source_volid": null, "metadata": {}, "links": [{"rel": "self", "href": "http://[LB_IP_ADDRESS]:8776/v3/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}, {"rel": "bookmark", "href": "http://[LB_IP_ADDRESS]:8776/1edc9fc3f10c40d88712c77ea786355c/volumes/2aefa1b9-962c-4347-af15-14a5cd37c6b3"}], "user_id": "7ece4cfe240c43289a3a8a924f78a1e4", "bootable": "false", "encrypted": false, "replication_status": null, "consistencygroup_id": null, "multiattach": false, "attachments": [], "migration_status": null, "os-vol-host-attr:host": null, "os-vol-tenant-attr:tenant_id": "1edc9fc3f10c40d88712c77ea786355c", "os-vol-mig-status-attr:migstat": null, "os-vol-mig-status-attr:name_id": null}}'
+
+
+
+======
+Totals
+======
+Ran: 10 tests in 10.1464 sec.
+ - Passed: 0
+ - Skipped: 6
+ - Expected Fail: 0
+ - Unexpected Success: 0
+ - Failed: 4
+Sum of execute time for each test: 6.7983 sec.
+
+==============
+Worker Balance
+==============
+ - Worker 0 (3 tests) => 0:00:00.013897
+ - Worker 1 (3 tests) => 0:00:05.095531
+ - Worker 2 (4 tests) => 0:00:10.146425
